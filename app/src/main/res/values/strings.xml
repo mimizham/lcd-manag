@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">leceladon_managing_1.0</string>
+    <string name="txt_order_date">Par date</string>
+    <string name="lib_inv">Libelle inventaire:</string>
+    <string name="Quantite">Quantite:</string>
+    <string name="date_entr_inv">Date entre:</string>
+  <string name="date_renvo">Date de renouvellement:</string>
+    <string name="type_prod">Type produit:</string>
+    <string name="login">Login:</string>
+    <string name="mdp">Mot de passe:</string>
+    <string name="crer_cmp">Créer un compte:</string>
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_date"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/borderdate"
+    tools:context="com.example.sam.leceladon_managing_10.Inventaire.DateTime">
+
+    <RelativeLayout
+        android:id="@+id/layout_orderbyalph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderdate">
+
+
+        <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="@string/txt_order_date"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="bold"></DatePicker>
+
+    </RelativeLayout>
+    <!--  <RelativeLayout
+         android:id="@+id/layout_orderbydate"
+         android:layout_width="fill_parent"
+         android:layout_height="40dp"
+         android:background="@drawable/borderdate"
+         >
+ <TimePicker
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+
+     ></TimePicke      <TextView
+             android:id="@+id/txt_order_date"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:textColor="#000000"
+             android:textSize="12sp"
+             android:textStyle="bold"
+             android:text="@string/txt_order_date"
+             android:layout_centerInParent="true"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             />
+
+
+    </RelativeLayout>-->
+
+</LinearLayout>
