@@ -1,91 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    >
-    <TextView
-        android:id="@+id/txt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="0dp"
-        android:text="@string/lib_inv" />
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtinv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
-        android:layout_toRightOf="@id/txt1"
-        android:layout_alignBaseline="@id/txt1"
-        android:text="xxxx" />
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@string/lib_inv" />
 
-    <TextView
-        android:id="@+id/txt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtinv"
-        android:text="@string/lib_inv" />
+        <TextView
+            android:id="@+id/txtinv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="xxxx" />
 
-    <TextView
-        android:id="@+id/txtlib"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/txt2"
-        android:layout_toEndOf="@id/txtinv"
-        android:layout_marginStart="5dp"
-        android:text="kkkk" />
+        <TextView
+           android:id="@+id/txt2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/txtinv"
+           android:text="@string/Quantite" />
 
-   <TextView
-        android:id="@+id/txt3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Quantite"
-       android:layout_below="@id/txtlib"
-       android:layout_toRightOf="@id/txtlib"
-        android:layout_alignParentStart="true"
-        android:layout_toEndOf="@id/txt2"/>
-    <TextView
-        android:id="@+id/txtquan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_alignBaseline="@id/txt3"
-        android:layout_toEndOf="@id/txtlib"
-        android:text="jjjjj"/>
+         <TextView
+               android:id="@+id/txtquan"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignStart="@+id/txtinv"
+               android:layout_below="@+id/txtinv"
+               android:text="kkkk" />
+
+              <TextView
+                     android:id="@+id/txt3"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/date_entr_inv"
+                     android:layout_below="@id/txtquan"/>
+
+          <TextView
+             android:id="@+id/txtdat"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                  android:layout_alignStart="@+id/txtquan"
+                  android:layout_below="@+id/txtquan"
+                 android:textSize="20dp"
+                 android:text="jjjjj" />
 
 
-    <TextView
-        android:id="@+id/txt4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/txtquan"
-        android:layout_toEndOf="@id/txt3"
-        android:text="@string/date_entr_inv" />
-    <TextView
-        android:id="@+id/txtdat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/txt4"
-        android:layout_alignBottom="@id/txtquan"
-        android:layout_toEndOf="@id/txtquan"
-        android:text="hhhh"
-     />
+              <TextView
+                 android:id="@+id/txt4"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@+id/txt3"
+                 android:text="@string/date_expir" />
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_above="@+id/txtdat"
-        android:layout_alignParentEnd="true"
-        android:text=">" />
+             <TextView
+                 android:id="@+id/txtdat_exp"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@+id/txtdat"
+                 android:layout_alignStart="@id/txtdat"
+                 android:text="hhhh" />
+
+            <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/txt3"
+            android:layout_alignParentEnd="true"
+            android:text=">" />
+
+ <!--  -->
 </RelativeLayout>
-
-</LinearLayout>

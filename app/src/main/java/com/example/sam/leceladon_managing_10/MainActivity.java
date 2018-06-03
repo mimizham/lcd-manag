@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,6 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     String url ="https://www.work.le-celadon.ma/Managing_Celadon/Users/login";
     Button button1;
     private SQLliteUser db;
+    String tock_tel;
 
 
     @Override
@@ -56,55 +62,65 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String logc = log.getText().toString();
                 final String pswc = psw.getText().toString();
-               /* */
                 // Instantiate the RequestQueue.
                 final RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 // Request a string response from the provided URL.
                 final StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                        new Response.Listener<String>() {
+                        new Response.Listener<String>()
+                        {
                             @Override
-                            public void onResponse(String response) {
-                                try {
-                                    toast = Toast.makeText(getApplicationContext()
-                                            , "log" + response, LENGTH_SHORT);
-                                    toast.show();
-                                    System.out.println(""+response);
-                     //une fois l user conncter les info sont stocker dans sqlite
-                                    JSONArray jObj = new JSONArray(response);
-                                    // Now store the user in SQLite
-                                    JSONObject jsonobject = jObj.getJSONObject(0);
-                                    System.out.println("jsonobject"+jsonobject);
+                            public void onResponse(String response)
+                            {
+                                Log.i("res",response);
+                                if (response != null && response.length() > 0)
+                                {
+                                    if (!TextUtils.isEmpty(log.getText().toString().trim()) && !TextUtils.isEmpty(psw.getText().toString().trim())) {
+                                        try {
 
-                                    //String name =jsonobject.getString("nom");
-                                        String token = jsonobject.getString("tocken");
-                                        String created_at =jsonobject.getString("id_user_encry");
+                                            JSONObject jsonuser = new JSONObject(String.valueOf(response));
+                                            System.out.println("jsonobject" + jsonuser);
+                                           String token = String.valueOf(jsonuser.get("token"));
+                                    //ana zwin
+                                            db.addUser(token);
 
-                                        System.out.println("n"+token+created_at);
-                                        // Inserting row in users table
+                                             tock_tel= db.getUserDetails();
+                                            //  db.getALlUserDetails2();
+                                             System.out.println("the token" + tock_tel);
+                                            Intent intent = new Intent(MainActivity.this, index2Activity.class);
+                                            intent.putExtra("tock_tel", tock_tel);
+                                            startActivity(intent);
+                                                   //finish();
 
-                                        db.addUser(token,created_at);
-                                        System.out.println("getuserdetaill"+db.getUserDetails());
-                                        // Launch main activity
-    /**/
-                               Intent intent = new Intent(MainActivity.this,Leceladon.class);
-                                intent.putExtra("response", db.getUserDetails());
-                                startActivity(intent);
-
-
-                                       // finish();
-
-                                } catch (JSONException e) {
-                                    // JSON error System.out.println(
-                                    e.printStackTrace();
-                                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                          }
+                                        catch (JSONException e)
+                                        {
+                                            // JSON error System.out.println(
+                                            //e.printStackTrace();
+                                            Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                            System.out.println("Json error" + e);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(getApplicationContext(), "Merci de remplire les champs", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-
-
+                                else
+                                {
+                                    System.out.println("no server response");
+                                } /**/
                             }
-                        }, new Response.ErrorListener() {
+                        },
+
+
+                        new Response.ErrorListener()
+                {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                        txt.setText("That didn't work!");
+                    public void onErrorResponse(VolleyError error)
+                    {
+                        //txt.setText("That didn't work!");
+                        System.out.println("error con"+error);
+                        error.printStackTrace();
                     }
 
 
@@ -119,20 +135,23 @@ public class MainActivity extends AppCompatActivity {
                     }
 
 
-                };
-
-// Add the request to the RequestQueue.
+                 };
+                stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                        3000,
+                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                 queue.add(stringRequest);
             }
         });
 
-        button2.setOnClickListener(new OnClickListener() {
+        /* button2.setOnClickListener(new OnClickListener()
+        {
             @Override
             public void onClick(View view) {
-                /* toast = Toast.makeText(getApplicationContext()
+                toast = Toast.makeText(getApplicationContext()
                         , "log" , LENGTH_SHORT);
                 toast.show();
-               */Intent intent1 = new Intent(MainActivity.this, New2Activity.class);
+               Intent intent1 = new Intent(MainActivity.this, New2Activity.class);
                // intent.putExtra("response", response);
                 startActivity(intent1);
             }
@@ -140,14 +159,14 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                /* toast = Toast.makeText(getApplicationContext()
+                toast = Toast.makeText(getApplicationContext()
                         , "log" , LENGTH_SHORT);
                 toast.show();
-               */Intent intent1 = new Intent(MainActivity.this, index2Activity.class);
+            Intent intent1 = new Intent(MainActivity.this, index2Activity.class);
                // intent1.putExtra("response", res);
                 startActivity(intent1);
             }
-        });
+        });*/
     }
 }
 

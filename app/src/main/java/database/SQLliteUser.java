@@ -9,16 +9,16 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by SAM on 22/04/2018.
  */
 
-public class SQLliteUser extends SQLiteOpenHelper {
+public class SQLliteUser extends SQLiteOpenHelper
+{
     //private static final String TAG = SQLiteHandler.class.getSimpleName();
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
     private static final String TAG = SQLliteUser.class.getSimpleName();
 
     // Database Name
@@ -29,7 +29,8 @@ public class SQLliteUser extends SQLiteOpenHelper {
     // Login Table Columns names
     private static final String KEY_IDU = "iduc";
     private static final String KEY_TOKEN = "token";
-
+    private String ok;
+    private  Long id_insert;
     public static String getKeyIdu() {
         return KEY_IDU;
     }
@@ -45,12 +46,11 @@ public class SQLliteUser extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
-                + KEY_TOKEN + " TEXT ," + KEY_IDU+ " TEXT PRIMARY KEY "+")";
+                + KEY_TOKEN + " TEXT ," + KEY_IDU+ " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL "+")";
         System.out.println(CREATE_LOGIN_TABLE);
+
         sqLiteDatabase.execSQL(CREATE_LOGIN_TABLE);
-
-
-        Log.d(TAG, "Database tables created");
+        Log.d(TAG, "Database tables created"+CREATE_LOGIN_TABLE);
 
     }
 
@@ -64,68 +64,66 @@ public class SQLliteUser extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void addUser(String token, String idu) {
+    public void addUser(String token)
+    {
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
-      //  values.put(KEY_NOM, nom); // Name
         values.put(KEY_TOKEN, token); // token
-        values.put(KEY_IDU, idu); // id user crypte
-// Insert the new row, returning the primary key value of the new row
-        long id = db.insert(TABLE_USER, null, values);
-
-        db.close(); // Closing database connection
-
-        Log.d(TAG, "New user inserted into sqlite: " + id);
+       // Insert the new row, returning the primary key value of the new row
+        id_insert = db.insert(TABLE_USER, null, values);
+        db.close(); // Closing database connectionreturn id;
+        Log.d(TAG, "New user inserted into sqlite: " + id_insert);
     }
 
     /*
      * Getting user data from database
      */
-    public ArrayList<HashMap<String, String>> getUserDetails() {
-        String selectQuery = "SELECT  * FROM " + TABLE_USER;
+    public String getUserDetails()
+    {
         SQLiteDatabase db = this.getReadableDatabase();
-
-        ArrayList<HashMap<String, String>> array_list = new ArrayList<HashMap<String, String>>();
-
-        //hp = new HashMap();
-       Cursor res =  db.rawQuery( selectQuery, null );
-        res.moveToFirst();
-
-        while(res.isAfterLast() == false){
-
-            HashMap<String,String>  hashmap = new HashMap<String, String>();
-            hashmap.put("idu", res.getString(res.getColumnIndex(KEY_IDU)));
-            hashmap.put("Tocken", res.getString(res.getColumnIndex(KEY_TOKEN)));
-           // hashmap.put("image", res.getString(res.getColumnIndex(image)));
-
-
-            array_list.add(hashmap);
-            res.moveToNext();
+        String[] columns= {KEY_TOKEN};
+        Cursor res = db.query(TABLE_USER, columns, "iduc=?", new String[] {String.valueOf(id_insert)}, null, null, null,null);
+        //geting tocken from teh bd of tel for curent user yeh
+        while(res.moveToNext())
+        {
+            ok=res.getString(res.getColumnIndex(KEY_TOKEN));
+            Log.d(TAG, "getco"+ok);
         }
+        return ok;
+    }
+
+    public ArrayList<HashMap<String, String>> getALlUserDetails2()
+    {
+        String selectQuery = "SELECT  * FROM "+ TABLE_USER;
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<HashMap<String, String>> array_list = new ArrayList<HashMap<String, String>>();
+        Cursor res =  db.rawQuery( selectQuery, null );
+        res.moveToFirst();
+        do{
+            HashMap<String, String> hashmap = new HashMap<String, String>();
+
+            hashmap.put("idu", res.getString(res.getColumnIndex(KEY_IDU)));
+            Log.d(TAG, "id sqlite: " + res.getString(res.getColumnIndex(KEY_IDU)));
+            hashmap.put("Tocken", res.getString(res.getColumnIndex(KEY_TOKEN)));
+            array_list.add(hashmap);
+        }
+        while(res.moveToNext());
+
+        res.close();
+        Log.d(TAG, "bb: " +array_list);
+
         return array_list;
 
     }
-    // HashMap<String, String> user = new HashMap<String, String>();
-       /*   String selectQuery = "SELECT  * FROM " + TABLE_USER;
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        // Move to first row
-
-        if (cursor.getCount() > 0) {
-            cursor.moveToFirst();
-
-          users uqu=new users();
-  user.put("nom", cursor.getString(1));
+   /*public void tock_true()
+    {
+        if()
+        {
 
         }
-        cursor.close();
-        db.close();
-        // return user
-        Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
-     //
-        return user;*/
+
+    }*/
+
 }
 
 

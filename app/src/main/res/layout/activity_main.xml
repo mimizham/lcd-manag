@@ -23,6 +23,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="28dp"
             android:ems="10"
+            android:text="aminaBen@hotmail.com"
             android:inputType="textPersonName" />
 
         <TextView
@@ -31,7 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/editTextlog"
             android:layout_below="@+id/editTextlog"
-            android:text="@string/mdp" />
+            android:text="@string/mdp"
+            />
 
         <EditText
             android:id="@+id/editTextpsw"
@@ -41,6 +43,7 @@
             android:layout_below="@+id/textView2"
             android:layout_marginTop="16dp"
             android:ems="10"
+            android:text="pas1234"
             android:inputType="textPassword" />
 
     <Button

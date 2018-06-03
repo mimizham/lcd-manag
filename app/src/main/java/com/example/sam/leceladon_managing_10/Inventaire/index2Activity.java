@@ -1,9 +1,11 @@
 package com.example.sam.leceladon_managing_10.Inventaire;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.sam.leceladon_managing_10.NewActivity;
 import com.example.sam.leceladon_managing_10.R;
 
 import org.json.JSONArray;
@@ -32,124 +35,142 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class index2Activity extends AppCompatActivity {
-    String url ="https://www.work.le-celadon.ma/Managing_Celadon/Inventaires";
-    TextView txt;
-    TextView txtd;
-    TextView txtqu;
-    TextView txtl;
+import static android.support.v4.content.ContextCompat.startActivity;
+
+public class index2Activity extends AppCompatActivity implements View.OnClickListener
+{
+    String url = "https://www.work.le-celadon.ma/Managing_Celadon/Inventaires/index";
+    TextView txt_inv;
+    TextView txt_date;
+    TextView txt_date_exp;
+    TextView txt_qu;
+    TextView txt_lib;
     ListView lsv;
     Button moreinfo;
-    private List<HashMap<String,Object>> listvi;
+    private List<HashMap<String, Object>> listvi;
     private listInventaire listAd;
-    private HashMap<String, Object> review;   /* */
+
+    private HashMap<String, Object> review;  /*  */
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index2);
-        txt=findViewById(R.id.txtinv);
-        txtd=findViewById(R.id.txtdat);
-        txtqu=findViewById(R.id.txtquan);
-        txtl=findViewById(R.id.txtlib);
-        lsv=findViewById(R.id.lvInventaire);
-/**/
+        txt_inv = findViewById(R.id.txtinv);
+        txt_date_exp = findViewById(R.id.txtdat_exp);
+        txt_date = findViewById(R.id.txtdat);
+        txt_qu = findViewById(R.id.txtquan);
+        //txt_lib= findViewById(R.id.txtlib);
+        lsv = findViewById(R.id.lvInventaire);
+        moreinfo = findViewById(R.id.btn);
+        final String resp = getIntent().getStringExtra("tock_tel");
+
         // Instantiate the RequestQueue.
         final RequestQueue queue = Volley.newRequestQueue(index2Activity.this);
         // Request a string response from the provided URL.
-        final StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
+        final StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>()
+                {
                     @Override
-                    public void onResponse(String response) {
-                         try {
+                    public void onResponse(String response)
+                    {
+                        try
+                        {
+                            Log.i("res", response);
                               JSONArray jarr = new JSONArray(response);
-                                   System.out.println(jarr.length());
-                                 for (int i = 0; i < jarr.length(); i++) {
-                                     JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(i)));
-                                 System.out.println("jobj" + jObj);
-                           /*   Toast toast = Toast.makeText(getApplicationContext()
-                                     , "" + response, Toast.LENGTH_LONG);
-                             toast.show();*/
-                                 listvi = new ArrayList<HashMap<String, Object>>();
-                                 review = new HashMap<String, Object>();
-                                 //  review.put("id_inventaire",jObj.get("id_inventaire"));
-                                 review.put("lblInv", jObj.get("libelle_produit"));
-                                 review.put("quantit", jObj.get("quantite"));
-                                 review.put("date_exp", jObj.get("date_exp"));
-                                 listvi.add(review);
-                                 listAd = new listInventaire(getApplicationContext(), listvi);
-                                 lsv.setAdapter(listAd);
-                                     lsv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-                                         @Override
-                                         public void onItemClick(AdapterView<?> parent , View view , int position , long id){
-                                             Intent in = new Intent(index2Activity.this,New2Activity.class);
-                                             startActivity(in);
+                            listvi = new ArrayList<HashMap<String, Object>>();
+                            for (int i = 0; i < jarr.length(); i++)
+                            {
 
-                                         }
-                                     });
+                                JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(i)));
+                                review = new HashMap<String, Object>();
+                             /*  System.out.println("i" + i + String.valueOf(jarr.getJSONObject(i)));*/
+                                review.put("lib_inv", jObj.get("libelle_produit"));
+                                review.put("quan",jObj.get("quantite"));
+                                review.put("date_expi", jObj.get("date_exp"));
+                                review.put("date_crt",jObj.get("date_entre"));
+                                listvi.add(review);
+                                listAd = new listInventaire(getApplicationContext(), listvi);
+                               //Log.i("kk", String.valueOf(listvi));
+                                lsv.setAdapter(listAd);
+                            }
 
-                             }
-                         }
-                    catch (Exception e)
-                    {    System.out.println("read please this exception");
-                        e.printStackTrace();
-
+                        }
+                        catch (Exception e)
+                        {
+                            System.out.println("read please this exception" + e);
+                        }
                     }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error)
+                    {
+                        System.out.println("error con" + error);
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
+                })
+                {
+                    @Override
+                    protected Map<String, String> getParams()
+                    {
+                        Map<String, String> params = new HashMap<String, String>();
+                        params.put("tock", resp);
+                        return params;
+                    }
+                };
 
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String> params = new HashMap<String, String>();
-                params.get("id_inventaire");
-                params.get("libelle_produit");
-                params.get("quantite");
-                params.get("date_exp");
-                return params;
-            }
-        };
+                       queue.add(stringRequest);
 
-// Add the request to the RequestQueue.
-        queue.add(stringRequest);
-        lsv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+       /* lsv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent newinv = new Intent(getApplicationContext(),
-                       New2Activity.class);
-              /* ficheAjouterRecom.putExtra("" ,);
-                newinv.putExtra("libelle_produit" ,lsv.get);
-                newinv.putExtra("quantite" ,);
-                newinv.putExtra("date_exp" ,);
-                newinv.putExtra("" ,);
-*/
+                        New2Activity.class);
+                newinv.putExtra("libelle_produit", lsv.get);
+                newinv.putExtra("quantite", );
+                newinv.putExtra("date_exp", );
+                newinv.putExtra("", );
+
                 startActivity(newinv);
+
+                String main = lsv.getSelectedItem().toString();
+                System.out.print(main);
+            }
+        });*/
+    }
+
+    @Override
+    public void onClick(View view) {
+        lsv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.print("kskss");
+                Intent in = new Intent(index2Activity.this, New2Activity.class);
+                startActivity(in);
+
+                finish();
+
             }
         });
     }
-      /*  button2.setOnClickListener(new OnClickListener() {
-@Override
-public void onClick(View view) {
-                 toast = Toast.makeText(getApplicationContext()
-                        , "log" , LENGTH_SHORT);
-                toast.show();
-              Intent intent1 = new Intent(MainActivity.this, NewActivity.class);
-        // intent.putExtra("response", response);
-        startActivity(intent1);
-        }
-        }); */
 
+    /* */
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture)
+    {
 
+    }
 }
-/**/
-class listInventaire extends BaseAdapter {
+class listInventaire extends BaseAdapter
+{
     public List<HashMap<String, Object>> lis;
     private LayoutInflater layoutInflater;
     private Context context;
+    // Button show_inv;
 
     public listInventaire(Context context, List<HashMap<String, Object>> lis) {
         this.lis = lis;
@@ -173,64 +194,92 @@ class listInventaire extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup)
+    {
 
-        final ViewHolder holder;
-        if (view == null) {
-
-           holder = new ViewHolder();
-          layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+         ViewHolder holder = null;
+        if (view == null || holder == null)
+        {   holder = new ViewHolder();
+            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = layoutInflater.inflate(R.layout.layout_inflate_inv, viewGroup, false);
-           // holder.idinv = view.findViewById(R.id.txtinv);
-            holder.lblInv= view.findViewById(R.id.txtlib);
-            holder.quantit = view.findViewById(R.id.txtquan);
-            holder.date_exp = view.findViewById(R.id.txtdat);
-            holder.show_inv=view.findViewById(R.id.btn);
-            view.setTag(holder);
-            //
-        } else {
-            holder = (ViewHolder) view.getTag();
-          // holder.show_inv.setText(lis.get(i).get
-        }
-        //holder.idinv.setText(lis.get(i).get("idinv").toString());
-        holder.lblInv.setText(lis.get(i).get("lblInv").toString());
-        holder.quantit.setText(lis.get(i).get("quantit").toString());
-        holder.date_exp.setText(lis.get(i).get("date_exp").toString());
 
-        holder.show_inv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent newinv = new Intent(context, New2Activity.class);
-               newinv.putExtra("lblInv", String.valueOf(holder.lblInv));
-                newinv.putExtra("quantit", String.valueOf(holder.quantit));
-                newinv.putExtra("date_exp", String.valueOf(holder.date_exp));
-              //  newinv.putExtra("lblInv", String.valueOf(holder.date_exp));
-                context.startActivity(newinv);
-            }
-        });
+            holder.lblInv = view.findViewById(R.id.txtinv);
+          /*    Log.i("oo", String.valueOf(lis));*/
+            holder.quantit = view.findViewById(R.id.txtquan);
+            holder.date_exp = view.findViewById(R.id.txtdat_exp);
+            holder.date_c = view.findViewById(R.id.txtdat);
+            view.setTag(holder);
+        }
+        else{
+            holder = (ViewHolder) view.getTag();
+        }
+        /* System.out.println("size" +lis.size());
+            Log.i("ool", lis.get(i).toString());
+       Log.i("loo", lis.get(i).toString());*/
+            holder.lblInv.setText(lis.get(i).get("lib_inv").toString());
+            holder.quantit.setText(lis.get(i).get("quan").toString());
+            holder.date_exp.setText(lis.get(i).get("date_expi").toString());
+            holder.date_c.setText(lis.get(i).get("date_crt").toString());
+
+
         return view;
     }
 
-    public static class ViewHolder {
+    public static class ViewHolder
+    {
         //ViewHolder est une classe interne appelé aussi cache qui contient toutesles éléments de l’Item changeables ou cliquablesImageView imgv;
-        // TextView  lblEdit;
+        // TextView  lblEdit;        //
         TextView lblInv;
-     //   TextView idinv;
         TextView quantit;
-       TextView date_exp;
+        TextView date_c;
+        TextView date_exp;
         Button show_inv;
-       /*  TextView date_entre;
-
-        TextView idfourni;
-        TextView id_fact;
-        TextView statutStock;
-        TextView prod;
-        TextView dateRenv;*/
-
 
     }
-
-
 }
 
 
+
+
+
+/*
+ for (i = 0; i < lis.size(); i++)
+        { System.out.println("size" +lis.size());
+            Log.i("ool", lis.get(i).toString());
+         /*     holder.lblInv.setText(lis.get(i).get("lib_inv"+i).toString());
+        holder.quantit.setText(lis.get(i).get("quantite").toString());
+       Log.i("loo", lis.get(i).toString());
+            holder.date_exp.setText(lis.get(i).get("date_expi"+i).toString());
+                    holder.date_c.setText(lis.get(i).get("date_crt"+i).toString());
+
+                    }
+//show_inv = view.findViewById(R.id.btn); holder.date_exp = view.findViewById(R.id.txtdat);
+            //   holder.show_inv=view.findViewById(R.id.btn);
+            //holder.idinv.setText(lis.get(i).get("idinv").toString());
+     holder.date_exp.setText(lis.get(i).get("date_expiration").toString());
+  holder.show_inv.setOnClickListener(new View.OnClickListener()
+          {
+                @Override
+                public void onClick(View view) {
+                    Intent newinv = new Intent(context, New2Activity.class);
+                    newinv.putExtra("lblInv", String.valueOf(holder.lblInv));
+                    newinv.putExtra("quantit", String.valueOf(holder.quantit));
+                  //  newinv.putExtra("date_expiration", String.valueOf(holder.date_exp));
+                    //  newinv.putExtra("lblInv", String.valueOf(holder.date_exp));
+                    context.startActivity(newinv);
+                }
+            });
+
+JSONArray jarr = new JSONArray(response);
+                             System.out.println("lenght"+jarr);
+                             System.out.println("lenght"+jarr.length());$
+                             JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(0)));
+                             review.put("lblInv", jObj.get("libelle_produit"));
+                             review.put("quantit", jObj.get("quantite"));
+                             review.put("date_exp", jObj.get("date_exp"));
+                             listvi.add(review);
+                             listAd = new listInventaire(getApplicationContext(), listvi);
+                             lsv.setAdapter(listAd);
+                             Toast toast = Toast.makeText(getApplicationContext()
+                                     , "" + response, Toast.LENGTH_LONG);
+                             toast.show();*/

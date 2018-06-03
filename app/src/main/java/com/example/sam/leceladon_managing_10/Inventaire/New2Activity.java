@@ -71,7 +71,7 @@ public class New2Activity extends AppCompatActivity implements  View.OnClickList
 */
         btn = findViewById(R.id.newInv);
         final TextView txtc = findViewById(R.id.textView5);
-        lblinv = findViewById(R.id.txtlib);
+        lblinv = findViewById(R.id.txtinv);
         lblquan = findViewById(R.id.txtquan);
         btn=findViewById(R.id.newInv);
      //   type = findViewById(R.id.ettypepro);
@@ -85,7 +85,7 @@ public class New2Activity extends AppCompatActivity implements  View.OnClickList
         /*final String quan = lblquan.getText().toString();
         final String ty = type.getText().toString();
         final String etatprod = etatpro.getText().toString();
-*/    daterenv.setOnClickListener(new View.OnClickListener() {
+  daterenv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final Calendar c=Calendar.getInstance();
@@ -118,9 +118,9 @@ public class New2Activity extends AppCompatActivity implements  View.OnClickList
                                //txt9.setText(var);
                             }
                         }, mHour, mMinute, false);
-                timePickerDialog.show(); /* */
+                timePickerDialog.show();
                 daterenv.setText(var);
-            }});
+            }});*//* */
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final RequestQueue queue = Volley.newRequestQueue(New2Activity.this);
@@ -141,15 +141,17 @@ public class New2Activity extends AppCompatActivity implements  View.OnClickList
                                         JSONObject Data = new JSONObject();
 
                                         //Storing the Array of JSON String to our JSON Array
-                                        for (int i = 0; i < jsonobject.length(); i++) {
+                                        for (int i = 0; i < jsonobject.length(); i++)
+                                        {
                                             try {
                                                 //Getting json object
                                                 result = jsonobject.getString("libelle_produit");
                                               //  spinnerData.put("libelle_produit", result);
                                                 System.out.println(Data);
 
-                                            }
-                                            catch (Exception e) {
+                                                }
+                                            catch (Exception e)
+                                            {
                                                 e.printStackTrace();
                                             }
                                         }
