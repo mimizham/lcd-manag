@@ -44,7 +44,7 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
     TextView txt_date;
     TextView txt_date_exp;
     TextView txt_qu;
-    TextView txt_lib;
+
     ListView lsv;
     Button moreinfo;
     private List<HashMap<String, Object>> listvi;
@@ -194,7 +194,7 @@ class listInventaire extends BaseAdapter
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup)
+    public View getView(final int i, View view, ViewGroup viewGroup)
     {
 
          ViewHolder holder = null;
@@ -208,6 +208,7 @@ class listInventaire extends BaseAdapter
             holder.quantit = view.findViewById(R.id.txtquan);
             holder.date_exp = view.findViewById(R.id.txtdat_exp);
             holder.date_c = view.findViewById(R.id.txtdat);
+            holder.show_inv= view.findViewById(R.id.btn_inv);
             view.setTag(holder);
         }
         else{
@@ -220,6 +221,18 @@ class listInventaire extends BaseAdapter
             holder.quantit.setText(lis.get(i).get("quan").toString());
             holder.date_exp.setText(lis.get(i).get("date_expi").toString());
             holder.date_c.setText(lis.get(i).get("date_crt").toString());
+            holder.show_inv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent newinv = new Intent(context, New2Activity.class);
+                    newinv.putExtra("lblInv", lis.get(i).get("lib_inv").toString());
+                    newinv.putExtra("quantit", lis.get(i).get("lib_inv").toString());
+                    newinv.putExtra("date_expiration", lis.get(i).get("lib_inv").toString());
+                   newinv.putExtra("lblInv",lis.get(i).get("lib_inv").toString());
+                    context.startActivity(newinv);
+
+                }
+            });
 
 
         return view;

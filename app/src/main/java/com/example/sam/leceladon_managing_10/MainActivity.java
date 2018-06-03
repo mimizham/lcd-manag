@@ -94,8 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                           }
                                         catch (JSONException e)
                                         {
-                                            // JSON error System.out.println(
-                                            //e.printStackTrace();
+                                            // JSON error System.out.println(e.printStackTrace());
                                             Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                                             System.out.println("Json error" + e);
                                         }

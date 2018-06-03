@@ -8,6 +8,12 @@
     <string name="date_expir">Date d\'expiration:</string>
     <string name="type_prod">Type produit:</string>
     <string name="login">Login:</string>
+    <string name="prod_renouv">Produit renouvelable:</string>
     <string name="mdp">Mot de passe:</string>
     <string name="crer_cmp">Créer un compte:</string>
+    <string name="modifier">Modifier</string>
+    <string name="annuler">Annuler</string>
+    <string name="oui">OUI</string>
+    <string name="non">NON</string>
+
 </resources>

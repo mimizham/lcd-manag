@@ -74,53 +74,7 @@ public class New2Activity extends AppCompatActivity implements  View.OnClickList
         lblinv = findViewById(R.id.txtinv);
         lblquan = findViewById(R.id.txtquan);
         btn=findViewById(R.id.newInv);
-     //   type = findViewById(R.id.ettypepro);
-     //   etatpro = findViewById(R.id.ettetatpro);
-        daterenv = findViewById(R.id.etrenv);
-     //   mySpinner = findViewById(R.id.SPlibprod);
-        txt8 = findViewById(R.id.textView8);
-        txt9 = findViewById(R.id.textView9);
-        bt=findViewById(R.id.retour);
-        // final String lbinv = lblinv.getText().toString();
-        /*final String quan = lblquan.getText().toString();
-        final String ty = type.getText().toString();
-        final String etatprod = etatpro.getText().toString();
-  daterenv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Calendar c=Calendar.getInstance();
-                mYear = c.get(Calendar.YEAR);
-                mMonth = c.get(Calendar.MONTH);
-                mDay = c.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(New2Activity.this,
-                        new DatePickerDialog.OnDateSetListener() {
 
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-                                    var=dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
-
-                            }
-                        }, mYear, mMonth, mDay);
-                datePickerDialog.show();
-                mHour = c.get(Calendar.HOUR_OF_DAY);
-                mMinute = c.get(Calendar.MINUTE);
-
-                // Launch Time Picker Dialog
-                TimePickerDialog timePickerDialog = new TimePickerDialog(New2Activity.this,
-                        new TimePickerDialog.OnTimeSetListener() {
-
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay,
-                                                  int minute) {
-
-                     var=var+hourOfDay + ":" + minute;
-                               //txt9.setText(var);
-                            }
-                        }, mHour, mMinute, false);
-                timePickerDialog.show();
-                daterenv.setText(var);
-            }});*//* */
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final RequestQueue queue = Volley.newRequestQueue(New2Activity.this);
