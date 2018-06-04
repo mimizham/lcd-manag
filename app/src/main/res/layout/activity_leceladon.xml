@@ -15,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
     <TextView
         android:id="@+id/textView3"
@@ -81,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView7"
         android:orientation="horizontal">
+
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,21 +101,25 @@
             android:textSize="10dp" />
     </RadioGroup>
 
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="match_parent">
+       <Button
+           android:id="@+id/btn_valide_nv_inv"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/grp_radio"
+           android:layout_toRightOf="@id/btn_ann_nv_inv"
+           android:text="@string/modifier"/>
+       <Button
+           android:id="@+id/btn_ann_nv_inv"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/grp_radio"
+           android:text="@string/annuler"
+           />
+   </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_valide_nv_inv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/grp_radio"
-        android:layout_toRightOf="@id/btn_ann_nv_inv"
-        android:text="@string/modifier"/>
-            <Button
-                android:id="@+id/btn_ann_nv_inv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/grp_radio"
-                android:text="@string/annuler"
-                />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
