@@ -6,7 +6,17 @@
     android:layout_height="match_parent"
     tools:context="com.example.sam.leceladon_managing_10.Leceladon"
     tools:layout_editor_absoluteY="81dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
@@ -90,20 +100,21 @@
             android:textSize="10dp" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btn_ann_nv_inv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/grp_radio"
 
-        android:text="@string/annuler"
-        />
     <Button
         android:id="@+id/btn_valide_nv_inv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/grp_radio"
-        android:layout_toLeftOf="@id/btn_ann_nv_inv"
+        android:layout_toRightOf="@id/btn_ann_nv_inv"
         android:text="@string/modifier"/>
-
+            <Button
+                android:id="@+id/btn_ann_nv_inv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/grp_radio"
+                android:text="@string/annuler"
+                />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

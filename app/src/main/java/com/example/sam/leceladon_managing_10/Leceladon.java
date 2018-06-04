@@ -19,72 +19,29 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Leceladon extends AppCompatActivity {
+public class Leceladon extends AppCompatActivity
+{
+    TextView lib_inv;
+    TextView inv_date;
+    TextView inv_date_exp;
+    TextView inv_qu;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        String url ="https://www.work.le-celadon.ma/Managing_Celadon/Inventaires/index";
+    protected void onCreate(Bundle savedInstanceState)
+    {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leceladon);
-        final TextView textView = findViewById(R.id.textView3);
-        //TextView textView1 = findViewById(R.id.textView5);
-        final String resp = getIntent().getStringExtra("tock_tel");
-
-        System.out.println("lenght"+resp);
-       final RequestQueue queue = Volley.newRequestQueue(Leceladon.this);
-        final StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                  /* System.out.println("i" +String.valueOf(jarr.getJSONObject(i)));
-                                JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(i)));
-
-                                System.out.println("jobj" + jObj.get("libelle_produit"));
-                           JSONArray jarr = new JSONArray(response);
-                            System.out.println("read"+jarr); JSONObject jsonobject = jarr.getJSONObject(0);
-                            System.out.println("read please this exception"+jsonobject);
-                        JSONObject jObj = new JSONObject(response); for(int p=0;p<jObj.length();p++)
-                                {
-                                    System.out.println(jObj.getString(String.valueOf(p)));
-  textView.setText("respjxn"+response);
-*/
-                            JSONArray jarr = new JSONArray(response);
-                            JSONObject jObj = new JSONObject(String.valueOf(jarr));
-
-                            Log.i("res", String.valueOf(jarr));
-
-
-                          }
-                        catch (Exception e)
-                        {
-                            System.out.println("read please this exception"+ e);
-
-
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("error con"+error);
-                error.printStackTrace();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("tock",resp);
-                return params;
-            }
-        };
-        //10000 is the time in milliseconds adn is equal to 10 sec
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                3000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        queue.add(stringRequest);
-    }
+            lib_inv=findViewById(R.id.txtlib);
+            inv_date=findViewById(R.id.txtdat);
+            inv_qu=findViewById(R.id.txtquan);
+            inv_date_exp=findViewById(R.id.inv_dat_exp);
+            lib_inv.setText(getIntent().getStringExtra("lblInv"));
+            inv_qu.setText(getIntent().getStringExtra("quantit"));
+//            inv_date.setText(getIntent().getStringExtra("date_crt"));
+            inv_date_exp.setText(getIntent().getStringExtra("date_expiration"));
+            System.out.print(getIntent().getStringExtra("quantit"));
+   }
 
 
 }

@@ -65,10 +65,6 @@ public class New2Activity extends AppCompatActivity implements  View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new2);
-        prod = new ArrayList<String>();
-      /*  dpk = findViewById(R.id.etrenv);
-        dpk.setSpinnersShown(false);
-*/
         btn = findViewById(R.id.newInv);
         final TextView txtc = findViewById(R.id.textView5);
         lblinv = findViewById(R.id.txtinv);

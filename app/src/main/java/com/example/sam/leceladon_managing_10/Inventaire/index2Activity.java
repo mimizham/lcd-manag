@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.sam.leceladon_managing_10.Leceladon;
 import com.example.sam.leceladon_managing_10.NewActivity;
 import com.example.sam.leceladon_managing_10.R;
 
@@ -64,7 +65,7 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
         txt_qu = findViewById(R.id.txtquan);
         //txt_lib= findViewById(R.id.txtlib);
         lsv = findViewById(R.id.lvInventaire);
-        moreinfo = findViewById(R.id.btn);
+        moreinfo = findViewById(R.id.btn_inv);
         final String resp = getIntent().getStringExtra("tock_tel");
 
         // Instantiate the RequestQueue.
@@ -224,11 +225,16 @@ class listInventaire extends BaseAdapter
             holder.show_inv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent newinv = new Intent(context, New2Activity.class);
+                    Intent newinv = new Intent();
+                    newinv.setClass(context, Leceladon.class);
+                    newinv.setAction(Leceladon.class.getName());
+                    newinv.setFlags(
+                            Intent.FLAG_ACTIVITY_NEW_TASK
+                                    | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
                     newinv.putExtra("lblInv", lis.get(i).get("lib_inv").toString());
-                    newinv.putExtra("quantit", lis.get(i).get("lib_inv").toString());
-                    newinv.putExtra("date_expiration", lis.get(i).get("lib_inv").toString());
-                   newinv.putExtra("lblInv",lis.get(i).get("lib_inv").toString());
+                    newinv.putExtra("quantit", lis.get(i).get("quan").toString());
+                    newinv.putExtra("date_expiration", lis.get(i).get("date_expi").toString());
+                    newinv.putExtra("date_c",lis.get(i).get("date_crt").toString());
                     context.startActivity(newinv);
 
                 }
