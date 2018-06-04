@@ -1,6 +1,5 @@
 package com.example.sam.leceladon_managing_10.Inventaire;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +12,8 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,7 +22,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sam.leceladon_managing_10.Leceladon;
-import com.example.sam.leceladon_managing_10.NewActivity;
 import com.example.sam.leceladon_managing_10.R;
 
 import org.json.JSONArray;
@@ -36,8 +32,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.support.v4.content.ContextCompat.startActivity;
-
 public class index2Activity extends AppCompatActivity implements View.OnClickListener
 {
     String url = "https://www.work.le-celadon.ma/Managing_Celadon/Inventaires/index";
@@ -45,7 +39,8 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
     TextView txt_date;
     TextView txt_date_exp;
     TextView txt_qu;
-
+    String bonc;
+    String prod_ren;
     ListView lsv;
     Button moreinfo;
     private List<HashMap<String, Object>> listvi;
@@ -63,7 +58,6 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
         txt_date_exp = findViewById(R.id.txtdat_exp);
         txt_date = findViewById(R.id.txtdat);
         txt_qu = findViewById(R.id.txtquan);
-        //txt_lib= findViewById(R.id.txtlib);
         lsv = findViewById(R.id.lvInventaire);
         moreinfo = findViewById(R.id.btn_inv);
         final String resp = getIntent().getStringExtra("tock_tel");
@@ -92,6 +86,8 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
                                 review.put("quan",jObj.get("quantite"));
                                 review.put("date_expi", jObj.get("date_exp"));
                                 review.put("date_crt",jObj.get("date_entre"));
+                                bonc= String.valueOf(jObj.get("id_bonC"));
+                                prod_ren=String.valueOf(jObj.get("prod_renvou"));
                                 listvi.add(review);
                                 listAd = new listInventaire(getApplicationContext(), listvi);
                                //Log.i("kk", String.valueOf(listvi));
@@ -235,6 +231,7 @@ class listInventaire extends BaseAdapter
                     newinv.putExtra("quantit", lis.get(i).get("quan").toString());
                     newinv.putExtra("date_expiration", lis.get(i).get("date_expi").toString());
                     newinv.putExtra("date_c",lis.get(i).get("date_crt").toString());
+
                     context.startActivity(newinv);
 
                 }
