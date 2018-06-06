@@ -100,7 +100,19 @@
             android:text="@string/non"
             android:textSize="10dp" />
     </RadioGroup>
-
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inv_dat_exp"
+                android:text="@string/bon_c"/>
+            <EditText
+                android:id="@+id/bon_cmd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:layout_below="@+id/textView6"
+                />
    <LinearLayout
        android:layout_width="wrap_content"
        android:layout_height="match_parent">

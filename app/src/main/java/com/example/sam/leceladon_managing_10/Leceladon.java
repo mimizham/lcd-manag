@@ -25,7 +25,7 @@ public class Leceladon extends AppCompatActivity
     TextView inv_date;
     TextView inv_date_exp;
     TextView inv_qu;
-
+    TextView bon_cmd;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -36,9 +36,10 @@ public class Leceladon extends AppCompatActivity
             inv_date=findViewById(R.id.txtdat);
             inv_qu=findViewById(R.id.txtquan);
             inv_date_exp=findViewById(R.id.inv_dat_exp);
+            bon_cmd=findViewById(R.id.bon_cmd);
             lib_inv.setText(getIntent().getStringExtra("lblInv"));
             inv_qu.setText(getIntent().getStringExtra("quantit"));
-//            inv_date.setText(getIntent().getStringExtra("date_crt"));
+            bon_cmd.setText(getIntent().getStringExtra("id_bonC"));
             inv_date_exp.setText(getIntent().getStringExtra("date_expiration"));
             System.out.print(getIntent().getStringExtra("quantit"));
    }

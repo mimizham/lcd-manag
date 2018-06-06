@@ -14,7 +14,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,10 +22,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sam.leceladon_managing_10.Leceladon;
 import com.example.sam.leceladon_managing_10.R;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -81,13 +78,17 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
 
                                 JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(i)));
                                 review = new HashMap<String, Object>();
-                             /*  System.out.println("i" + i + String.valueOf(jarr.getJSONObject(i)));*/
+
                                 review.put("lib_inv", jObj.get("libelle_produit"));
                                 review.put("quan",jObj.get("quantite"));
                                 review.put("date_expi", jObj.get("date_exp"));
                                 review.put("date_crt",jObj.get("date_entre"));
-                                bonc= String.valueOf(jObj.get("id_bonC"));
-                                prod_ren=String.valueOf(jObj.get("prod_renvou"));
+                                review.put("bon_cmd",jObj.get("id_bonC"));
+                                review.put("renouvelle",jObj.get("prod_renvou"));
+
+                                //System.out.println("i" +bonc+String.valueOf(jObj.get("id_bonC")));
+                                /*  bonc= String.valueOf(jObj.get("id_bonC"));
+                                prod_ren=String.valueOf(jObj.get("prod_renvou"));*/
                                 listvi.add(review);
                                 listAd = new listInventaire(getApplicationContext(), listvi);
                                //Log.i("kk", String.valueOf(listvi));
@@ -231,6 +232,9 @@ class listInventaire extends BaseAdapter
                     newinv.putExtra("quantit", lis.get(i).get("quan").toString());
                     newinv.putExtra("date_expiration", lis.get(i).get("date_expi").toString());
                     newinv.putExtra("date_c",lis.get(i).get("date_crt").toString());
+                    newinv.putExtra("bon_cmd",lis.get(i).get("bon_cmd").toString());
+                    newinv.putExtra("renouvelle",lis.get(i).get("renouvelle").toString());
+                  //  newinv.putExtra("bonc",bonc);
 
                     context.startActivity(newinv);
 

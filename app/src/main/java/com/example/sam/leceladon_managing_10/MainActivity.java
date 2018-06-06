@@ -71,29 +71,62 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(String response)
                             {
-                                Log.i("res",response);
+                               // Log.i("res",response);
                                 if (response != null && response.length() > 0)
                                 {
                                     if (!TextUtils.isEmpty(log.getText().toString().trim()) && !TextUtils.isEmpty(psw.getText().toString().trim())) {
-                                        try {
-
-                                            JSONObject jsonuser = new JSONObject(String.valueOf(response));
-                                            System.out.println("jsonobject" + jsonuser);
-                                           String token = String.valueOf(jsonuser.get("token"));
-                                    //ana zwin
-                                            db.addUser(token);
-
-                                             tock_tel= db.getUserDetails();
-                                            //  db.getALlUserDetails2();
-                                             System.out.println("the token" + tock_tel);
-                                            Intent intent = new Intent(MainActivity.this, index2Activity.class);
-                                            intent.putExtra("tock_tel", tock_tel);
-                                            startActivity(intent);
-                                                   //finish();
-
-                                          }
-                                        catch (JSONException e)
+                                        try
                                         {
+                                            JSONObject jsonuser = new JSONObject(String.valueOf(response));
+                                            /*      System.out.println("jsonobject" + jsonuser);*/
+                                            switch (String.valueOf(jsonuser))
+                                            {
+                                                case "token":
+                                                {
+                                                    db.addUser(String.valueOf(jsonuser.get("token")));
+                                                    tock_tel= db.getUserDetails();
+                                                    System.out.println("tock tel" + tock_tel);
+
+                                                    Intent intent = new Intent(MainActivity.this, index2Activity.class);
+                                                   intent.putExtra("tock_tel", tock_tel);
+                                                    startActivity(intent);
+                                                    break;
+                                                }
+
+                                                case "erreur":
+                                                    Toast.makeText(getApplicationContext(), String.valueOf(jsonuser.get("erreur")), Toast.LENGTH_SHORT).show();
+
+                                                //    System.out.println("er"+String.valueOf(jsonuser.get("erreur")));
+                                                    break;
+                                            }
+
+
+
+                                          /*   String n = String.valueOf(jsonuser.get("erreur"));
+                                            System.out.println("the token" + n);  if(!String.valueOf(jsonuser.get("token")).isEmpty() && String.valueOf(jsonuser.get("token")).length()==70)
+                                           { String token = String.valueOf(jsonuser.get("token"));
+                                               db.addUser(token);
+
+                                               tock_tel= db.getUserDetails();
+                                               //  db.getALlUserDetails2();
+                                               System.out.println("the token" + tock_tel);
+                                               Intent intent = new Intent(MainActivity.this, index2Activity.class);
+                                               intent.putExtra("tock_tel", tock_tel);
+                                               startActivity(intent);
+                                               //finish();
+
+                                           }
+                                           else if(!String.valueOf(jsonuser.get("erreur")).isEmpty())
+                                           {
+                                               System.out.println("the token" );
+                                           }
+                                           else
+                                           {
+                                               System.out.println("the tokenhhhh");
+                                           }
+*/
+
+                                        } catch (JSONException e) {
                                             // JSON error System.out.println(e.printStackTrace());
                                             Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                                             System.out.println("Json error" + e);
