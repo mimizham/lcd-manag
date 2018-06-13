@@ -123,13 +123,14 @@
            android:layout_below="@+id/grp_radio"
            android:layout_toRightOf="@id/btn_ann_nv_inv"
            android:text="@string/modifier"/>
+
        <Button
            android:id="@+id/btn_ann_nv_inv"
+           style="@android:style/Widget.Material.Light.Button.Small"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_below="@+id/grp_radio"
-           android:text="@string/annuler"
-           />
+           android:text="@string/annuler" />
    </LinearLayout>
 
         </LinearLayout>
