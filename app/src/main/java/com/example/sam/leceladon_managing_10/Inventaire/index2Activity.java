@@ -85,9 +85,9 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
                                 review.put("date_crt",jObj.get("date_entre"));
                                 review.put("bon_cmd",jObj.get("id_bonC"));
                                 review.put("renouvelle",jObj.get("prod_renvou"));
-
-                                //System.out.println("i" +bonc+String.valueOf(jObj.get("id_bonC")));
-                                /*  bonc= String.valueOf(jObj.get("id_bonC"));
+                                review.put("date_renou",jObj.get("date_renvou"));
+                             /*     System.out.println("i" +String.valueOf(jObj.get("prod_renvou")));
+                               bonc= String.valueOf(jObj.get("id_bonC"));
                                 prod_ren=String.valueOf(jObj.get("prod_renvou"));*/
                                 listvi.add(review);
                                 listAd = new listInventaire(getApplicationContext(), listvi);
@@ -234,6 +234,7 @@ class listInventaire extends BaseAdapter
                     newinv.putExtra("date_c",lis.get(i).get("date_crt").toString());
                     newinv.putExtra("bon_cmd",lis.get(i).get("bon_cmd").toString());
                     newinv.putExtra("renouvelle",lis.get(i).get("renouvelle").toString());
+                    newinv.putExtra("date_renvo",lis.get(i).get("date_renou").toString());
                   //  newinv.putExtra("bonc",bonc);
 
                     context.startActivity(newinv);

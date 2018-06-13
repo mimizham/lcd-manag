@@ -5,6 +5,7 @@
     <string name="Quantite">Quantite:</string>
     <string name="date_entr_inv">Date entre:</string>
   <string name="date_renvo">Date de renouvellement:</string>
+    <string name="date_cr_p">Date de création produit:</string>
     <string name="date_expir">Date d\'expiration:</string>
     <string name="type_prod">Type produit:</string>
     <string name="login">Login:</string>

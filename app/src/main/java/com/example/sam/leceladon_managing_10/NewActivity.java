@@ -61,21 +61,23 @@ public class NewActivity extends AppCompatActivity {
 
         btnnew.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                 /**/
-                Toast toast = Toast.makeText(getApplicationContext()
-                        , "log" + etNom + "psw" + etPre+ ettel+ etemail+ etpsw+adress, LENGTH_SHORT);
-                toast.show();
+
                 final RequestQueue queue = Volley.newRequestQueue(NewActivity.this);
                 final StringRequest insertReq = new StringRequest(Request.Method.POST, urlc,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String newscmp)
                             {
+                                /*  Toast toast = Toast.makeText(getApplicationContext()
+                             , "log" + etNom + "psw" + etPre+ ettel+ etemail+ etpsw+adress, LENGTH_SHORT);
+                               toast.show();
+
                                 Intent intent2 = new Intent(NewActivity.this, Leceladon.class);
                                 intent2.putExtra("newCompte", newscmp);
-                                txtc.setText(""+newscmp);
-                                startActivity(intent2);
 
+                                startActivity(intent2);*/
+                                System.out.print(newscmp);
+                               /// txtc.setText(""+newscmp);
                             }
 
                         }, new Response.ErrorListener() {
@@ -83,9 +85,10 @@ public class NewActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
 
-                        Toast toast = Toast.makeText(getApplicationContext()
+                        /*Toast toast = Toast.makeText(getApplicationContext()
                                 , ""+error,Toast.LENGTH_LONG);
-                        toast.show();
+                        toast.show();*/
+                        System.out.print(error);
                     }
 
                                                           })

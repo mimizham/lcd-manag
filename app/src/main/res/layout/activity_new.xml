@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/editText2"
                 android:layout_below="@+id/textViewprenom"
+                android:text="sam"
 
                 android:inputType="textPersonName" />
 
@@ -48,6 +49,7 @@
                 android:layout_below="@+id/textViewnom"
                 android:layout_toEndOf="@+id/textViewnom"
                 android:ems="10"
+                android:text="samio"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -60,20 +62,21 @@
                 android:id="@+id/etadresse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:text="jsjsplqo "
                 android:inputType="textPostalAddress" />
 
             <TextView
                 android:id="@+id/txttel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Telphone" />
+                android:text="Telphone"
+               />
 
             <EditText
                 android:id="@+id/telphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:text="088289321"
                 android:inputType="number" />
 
             <TextView
@@ -90,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignStart="@+id/editTextnom"
+                android:text="sam@js.com"
 
                  />
 
@@ -106,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textViewmotdepasse"
-
+                android:text="samija"
                 android:inputType="textPassword" />
 
 
