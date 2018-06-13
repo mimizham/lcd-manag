@@ -14,72 +14,80 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">-->
 
-        <EditText
-            android:id="@+id/editTextlog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="28dp"
-            android:ems="10"
-            android:text="aminaBen@hotmail.com"
-            android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/editTextlog"
+        style="@style/textbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="aminaBen@hotmail.com" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/editTextlog"
-            android:layout_below="@+id/editTextlog"
-            android:text="@string/mdp"
-            />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextpsw"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="67dp"
+        android:text="@string/mdp" />
 
-        <EditText
-            android:id="@+id/editTextpsw"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView2"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:text="pas1234"
-            android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/editTextpsw"
+        android:layout_width="241dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="pas1234" />
 
     <Button
         android:id="@+id/buttonconn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextpsw"
-        android:layout_toEndOf="@+id/textView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="203dp"
         android:text="Se Connecter" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="58dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/editTextlog"
-            android:text="@string/login"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="2dp" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextlog"
+        android:layout_alignStart="@+id/textView2"
+        android:text="@string/login"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="2dp" />
 
     <Button
         android:id="@+id/buttonlink"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_below="@+id/buttonconn"
+        android:layout_height="37dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="155dp"
         android:text="@string/crer_cmp" />
 
     <Button
         android:id="@+id/inv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/buttonlink"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="47dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="112dp"
         android:text="inv" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        app:srcCompat="@mipmap/leceladon_managing3" />
 
 
 </RelativeLayout>
