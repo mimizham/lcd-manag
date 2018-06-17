@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Base.V21.Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="android:textColorHint">@color/colorBgOppos</item>
@@ -10,6 +10,7 @@
         <item name="android:buttonStyle">@style/Button</item>
         <item name="android:editTextStyle">@style/textbox</item>
         <item name="android:editTextPreferenceStyle">@style/textbox</item>
+        <item name="android:textViewStyle">@style/labelinfo</item>
 
         <item name="android:fontFamily">@font/museoslab300</item>
 
@@ -19,19 +20,10 @@
         <item name="android:textColorPrimary">@color/colorAccent</item>
     </style>
 
-    <style name="textbox">
-        <item name="android:padding">20px</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:width">250dp</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:textColorHint">@color/colorAccent</item>
-        <item name="android:textColor">@color/colorBgOppos</item>
-
-    </style>
 
     <style name="labelinfo">
         <item name="android:textColor">@color/colorBgOppos</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 

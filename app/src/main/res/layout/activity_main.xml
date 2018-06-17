@@ -16,7 +16,6 @@
 
     <EditText
         android:id="@+id/editTextlog"
-        style="@style/textbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
@@ -28,17 +27,19 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:layout_above="@+id/editTextpsw"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="67dp"
+        android:layout_marginStart="53dp"
         android:text="@string/mdp" />
 
     <EditText
         android:id="@+id/editTextpsw"
         android:layout_width="241dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="230dp"
         android:ems="10"
         android:inputType="textPassword"
         android:text="pas1234" />
@@ -49,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="203dp"
+        android:layout_marginBottom="124dp"
         android:text="Se Connecter" />
 
     <TextView
@@ -59,6 +60,7 @@
         android:layout_above="@+id/editTextlog"
         android:layout_alignStart="@+id/textView2"
         android:text="@string/login"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="2dp" />
 
@@ -66,18 +68,17 @@
         android:id="@+id/buttonlink"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/inv"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="155dp"
         android:text="@string/crer_cmp" />
 
     <Button
         android:id="@+id/inv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextlog"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="171dp"
         android:text="inv" />
 
     <ImageView
@@ -88,6 +89,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"
         app:srcCompat="@mipmap/leceladon_managing3" />
-
 
 </RelativeLayout>
