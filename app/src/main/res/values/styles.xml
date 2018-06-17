@@ -1,15 +1,51 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Base.V21.Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/colorBgOppos</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@color/colorBg</item>
+        <item name="android:buttonStyle">@style/Button</item>
+        <item name="android:editTextStyle">@style/textbox</item>
+        <item name="android:editTextPreferenceStyle">@style/textbox</item>
+        <item name="android:textViewStyle">@style/labelinfo</item>
+
+        <item name="android:fontFamily">@font/museoslab300</item>
 
     </style>
     <style name="NumbePickerStyle">
         <item name="android:textSize">22dp</item>
         <item name="android:textColorPrimary">@color/colorAccent</item>
+    </style>
+
+
+    <style name="labelinfo">
+        <item name="android:textColor">@color/colorBgOppos</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="Button">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">20px</item>
+        <item name="android:layout_marginBottom">5dp</item>
+
+    </style>
+
+    <style name="menuTextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/formName</item>
+        <item name="android:textColor">@color/colorBgOppos</item>
+        <item name="android:fontFamily">@font/museoslab300</item>
+    </style>
+    <style name="ListView" parent="@android:style/Widget.ListView">
+        <item name="android:background">@color/light_grey</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">0dp</item>
+
     </style>
 </resources>
