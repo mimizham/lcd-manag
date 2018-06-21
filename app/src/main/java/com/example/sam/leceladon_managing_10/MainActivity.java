@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 toast = Toast.makeText(getApplicationContext()
                         , "log" , LENGTH_SHORT);
                 toast.show();
-               Intent intent1 = new Intent(MainActivity.this, New2Activity.class);
+               Intent intent1 = new Intent(MainActivity.this, NewActivity.class);
                // intent.putExtra("response", response);
                 startActivity(intent1);
             }
