@@ -43,12 +43,11 @@
 
             <RelativeLayout
                 android:id="@+id/relativeLDelivry"
-                android:layout_width="99dp"
+                android:layout_width="wrap_content"
                 android:layout_height="79dp"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginEnd="75dp"
-                android:layout_marginTop="44dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="45dp"
                 android:clickable="true"
                 tools:layout_editor_absoluteX="137dp"
                 tools:layout_editor_absoluteY="271dp">
@@ -61,6 +60,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="Livraison"
+                    android:textSize="10sp"
                     tools:layout_editor_absoluteX="71dp"
                     tools:layout_editor_absoluteY="335dp" />
 
@@ -69,7 +69,7 @@
                     android:layout_width="44dp"
                     android:layout_height="48dp"
                     android:layout_centerInParent="true"
-                    app:srcCompat="@mipmap/delivrylogo"
+                    app:srcCompat="@mipmap/a195419864"
                     tools:layout_editor_absoluteX="71dp" />
             </RelativeLayout>
 
@@ -77,9 +77,9 @@
                 android:id="@+id/relativeLInventory"
                 android:layout_width="wrap_content"
                 android:layout_height="74dp"
-                android:layout_alignBottom="@+id/relativeLDelivry"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="73dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
                 android:clickable="true"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="271dp">
@@ -92,28 +92,29 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="Inventaire"
+                    android:textSize="10sp"
                     tools:layout_editor_absoluteX="71dp"
                     tools:layout_editor_absoluteY="335dp" />
 
                 <ImageView
                     android:id="@+id/imageView6"
-                    android:layout_width="44dp"
-                    android:layout_height="48dp"
+                    android:layout_width="48dp"
+                    android:layout_height="50dp"
                     android:layout_centerInParent="true"
                     app:layout_constraintBottom_toTopOf="@+id/textView16"
-                    app:srcCompat="@mipmap/inventorylogo"
+                    app:srcCompat="@mipmap/a195420364"
                     tools:layout_editor_absoluteX="71dp" />
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:id="@+id/relativeDeliveryM"
-                android:layout_width="124dp"
+                android:layout_width="wrap_content"
                 android:layout_height="74dp"
 
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="55dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="124dp"
                 android:clickable="true"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="271dp">
@@ -126,6 +127,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="MyDeliveries"
+                    android:textSize="10sp"
                     tools:layout_editor_absoluteX="71dp"
                     tools:layout_editor_absoluteY="335dp" />
 
@@ -135,7 +137,7 @@
                     android:layout_height="48dp"
                     android:layout_centerInParent="true"
                     app:layout_constraintBottom_toTopOf="@+id/textView1M"
-                    app:srcCompat="@mipmap/inventorylogo"
+                    app:srcCompat="@mipmap/a195420164"
                     tools:layout_editor_absoluteX="71dp" />
             </RelativeLayout>
 
@@ -152,8 +154,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="31dp"
         android:text="Menu"
         tools:layout_editor_absoluteX="63dp"
         tools:layout_editor_absoluteY="25dp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="40px"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView3"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-64dp"
+        app:srcCompat="@mipmap/a103151164" />
 
 </RelativeLayout>

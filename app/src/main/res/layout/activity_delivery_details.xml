@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="0dp"
+
 
     tools:context=".Delivery.DeliveryDetails">
 
@@ -105,11 +107,11 @@
 
     <Button
         android:id="@+id/btn_delivered"
+        style="@style/ButtonAlert"
         android:layout_width="124dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView19"
         android:layout_alignStart="@+id/button_products"
-        android:background="@color/colorOk"
         android:text="Livré"
         android:visibility="invisible" />
 

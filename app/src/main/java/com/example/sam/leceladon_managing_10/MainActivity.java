@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String logc = log.getText().toString();
                 final String pswc = psw.getText().toString();
+                System.out.print(logc+"_"+pswc);
                 // Instantiate the RequestQueue.
                 final RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
                 // Request a string response from the provided URL.
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(String response)
                             {
+
                                // Log.i("res",response);
                                 if (response != null && response.length() > 0)
                                 {
@@ -80,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
                                         {
                                             JSONObject jsonuser = new JSONObject(String.valueOf(response));
                                             /*      System.out.println("jsonobject" + jsonuser);*/
-                                            switch (String.valueOf(jsonuser))
+
+                                            switch (jsonuser.keys().next())
                                             {
                                                 case "token":
                                                 {
@@ -102,30 +105,6 @@ public class MainActivity extends AppCompatActivity {
                                             }
 
 
-
-                                          /*   String n = String.valueOf(jsonuser.get("erreur"));
-                                            System.out.println("the token" + n);  if(!String.valueOf(jsonuser.get("token")).isEmpty() && String.valueOf(jsonuser.get("token")).length()==70)
-                                           { String token = String.valueOf(jsonuser.get("token"));
-                                               db.addUser(token);
-
-                                               tock_tel= db.getUserDetails();
-                                               //  db.getALlUserDetails2();
-                                               System.out.println("the token" + tock_tel);
-                                               Intent intent = new Intent(MainActivity.this, index2Activity.class);
-                                               intent.putExtra("tock_tel", tock_tel);
-                                               startActivity(intent);
-                                               //finish();
-
-                                           }
-                                           else if(!String.valueOf(jsonuser.get("erreur")).isEmpty())
-                                           {
-                                               System.out.println("the token" );
-                                           }
-                                           else
-                                           {
-                                               System.out.println("the tokenhhhh");
-                                           }
-*/
 
                                         } catch (JSONException e) {
                                             // JSON error System.out.println(e.printStackTrace());
@@ -159,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }) {
                     @Override
-                    protected Map<String, String> getParams()
+                    public Map<String, String> getParams()
                     {
                         Map<String, String> params = new HashMap<String, String>();
                         params.put("emailu", logc);
@@ -169,15 +148,16 @@ public class MainActivity extends AppCompatActivity {
 
 
                  };
-                stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                        3000,
+
+                /*stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                        20000,
                         DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));*/
                 queue.add(stringRequest);
             }
         });
 
-        /* button2.setOnClickListener(new OnClickListener()
+         button2.setOnClickListener(new OnClickListener()
         {
             @Override
             public void onClick(View view) {
@@ -199,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
                // intent1.putExtra("response", res);
                 startActivity(intent1);
             }
-        });*/
+        });
     }
 }
 

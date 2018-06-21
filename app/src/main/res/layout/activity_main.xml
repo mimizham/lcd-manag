@@ -35,11 +35,11 @@
 
     <EditText
         android:id="@+id/editTextpsw"
-        android:layout_width="241dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="230dp"
+        android:layout_alignStart="@+id/editTextlog"
+        android:layout_marginBottom="232dp"
         android:ems="10"
         android:inputType="textPassword"
         android:text="pas1234" />
@@ -66,11 +66,12 @@
 
     <Button
         android:id="@+id/buttonlink"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView2"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="71dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp"
         android:text="@string/crer_cmp" />
 
     <Button
@@ -79,7 +80,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/buttonlink"
         android:layout_toEndOf="@+id/textView2"
-        android:text="inv" />
+        android:text="inv"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -89,5 +91,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"
         app:srcCompat="@mipmap/leceladon_managing3" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="33dp"
+        android:layout_height="28dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="62dp"
+        app:srcCompat="@mipmap/a92589064" />
 
 </RelativeLayout>
