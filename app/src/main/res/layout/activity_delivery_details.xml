@@ -17,7 +17,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="17dp"
-        android:layout_marginEnd="15dp"
         android:text="Accepté" />
 
     <ImageView
@@ -40,62 +39,6 @@
         android:text="Id Commande :"
         android:textColor="@color/colorBgOppos" />
 
-    <TextView
-        android:id="@+id/textView17"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView9"
-        android:layout_alignStart="@+id/textView14"
-        android:text="Date de livraison :"
-        android:textColor="@color/colorBgOppos" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="238dp"
-        android:text="Produits :"
-        android:textColor="@color/colorBgOppos" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="159dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="61dp"
-        android:text="Adresse :"
-        android:textColor="@color/colorBgOppos" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/textView18"
-        android:layout_marginStart="15dp"
-        app:srcCompat="@mipmap/a172576x64" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageView8"
-        android:layout_marginBottom="270dp"
-        app:srcCompat="@mipmap/a172576x642" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_alignStart="@+id/imageView8"
-        android:layout_alignTop="@+id/textView19"
-        app:srcCompat="@mipmap/a172576x643" />
-
     <Button
         android:id="@+id/button_products"
         android:layout_width="126dp"
@@ -110,10 +53,36 @@
         style="@style/ButtonAlert"
         android:layout_width="124dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView19"
+
         android:layout_alignStart="@+id/button_products"
         android:text="Livré"
         android:visibility="invisible" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="118dp">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="208dp"
+            android:layout_height="141dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="34dp"
+            android:text="Adresse :"
+            android:textColor="@color/colorBgOppos" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@mipmap/a172576x643" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/txt_sts"
@@ -124,5 +93,57 @@
         android:layout_marginEnd="126dp"
         android:layout_marginTop="180dp"
         android:text="Status : " />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="184dp">
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="36dp"
+            android:text="Produits :"
+            android:textColor="@color/colorBgOppos" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@mipmap/a172576x64" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="232dp">
+
+        <TextView
+            android:id="@+id/textView17"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="36dp"
+            android:text="Date de livraison :"
+            android:textColor="@color/colorBgOppos" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+
+            app:srcCompat="@mipmap/a172576x642" />
+    </RelativeLayout>
 
 </RelativeLayout>
