@@ -22,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sam.leceladon_managing_10.Inventaire.New2Activity;
 import com.example.sam.leceladon_managing_10.Inventaire.index2Activity;
+import com.example.sam.leceladon_managing_10.Menu.Menu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                                                     tock_tel= db.getUserDetails();
                                                     System.out.println("tock tel" + tock_tel);
 
-                                                    Intent intent = new Intent(MainActivity.this, index2Activity.class);
+                                                    Intent intent = new Intent(MainActivity.this, Menu.class);
                                                    intent.putExtra("tock_tel", tock_tel);
                                                     startActivity(intent);
                                                     break;

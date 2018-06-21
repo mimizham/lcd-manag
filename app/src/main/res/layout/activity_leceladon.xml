@@ -12,18 +12,17 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/txtlib"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="-43dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="31dp"
         android:text="@string/lib_inv" />
 
     <EditText
         android:id="@+id/txtlib"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-95dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -39,8 +38,8 @@
         android:id="@+id/txtquan"
         android:layout_width="314dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
         android:inputType="numberSigned" />
 
     <TextView
@@ -56,8 +55,8 @@
         android:id="@+id/inv_dat_exp"
         android:layout_width="332dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="203dp"
         android:inputType="datetime" />
 
@@ -74,9 +73,8 @@
         android:layout_width="322dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="244dp"
-        android:layout_marginEnd="18dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="248dp"
         android:inputType="datetime"
         android:singleLine="false" />
 
@@ -130,8 +128,8 @@
         android:layout_height="wrap_content"
 
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="166dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="165dp"
         android:inputType="numberSigned" />
 
 
@@ -146,18 +144,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="109dp"
-        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="106dp"
+        android:layout_marginEnd="33dp"
         android:text="@string/modifier" />
 
     <Button
         android:id="@+id/btn_ann_nv_inv"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/btn_valide_nv_inv"
-        android:layout_marginStart="105dp"
-        android:text="@string/annuler" />
+
+        android:layout_toStartOf="@+id/btn_valide_nv_inv"
+        android:text="@string/annuler"
+        android:textAlignment="center" />
 
 
 

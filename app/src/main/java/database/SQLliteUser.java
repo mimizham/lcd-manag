@@ -91,6 +91,30 @@ public class SQLliteUser extends SQLiteOpenHelper
         }
         return ok;
     }
+    public ArrayList<HashMap<String, String>> getUserDetails(String all) {
+        String selectQuery = "SELECT  * FROM " + TABLE_USER;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ArrayList<HashMap<String, String>> array_list = new ArrayList<HashMap<String, String>>();
+
+        //hp = new HashMap();
+        Cursor res =  db.rawQuery( selectQuery, null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+
+            HashMap<String,String>  hashmap = new HashMap<String, String>();
+            hashmap.put("idu", res.getString(res.getColumnIndex(KEY_IDU)));
+            hashmap.put("Tocken", res.getString(res.getColumnIndex(KEY_TOKEN)));
+            // hashmap.put("image", res.getString(res.getColumnIndex(image)));
+
+
+            array_list.add(hashmap);
+            res.moveToNext();
+        }
+        return array_list;
+
+    }
 
     public ArrayList<HashMap<String, String>> getALlUserDetails2()
     {

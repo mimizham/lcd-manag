@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="162dp"
         android:text="Se Connecter" />
 
     <TextView
@@ -67,18 +67,18 @@
     <Button
         android:id="@+id/buttonlink"
         android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:layout_alignTop="@+id/inv"
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="71dp"
         android:text="@string/crer_cmp" />
 
     <Button
         android:id="@+id/inv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editTextlog"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="171dp"
+        android:layout_alignTop="@+id/buttonlink"
+        android:layout_toEndOf="@+id/textView2"
         android:text="inv" />
 
     <ImageView
