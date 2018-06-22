@@ -14,24 +14,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">-->
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200px"
-        android:layout_height="200px"
-        android:layout_above="@+id/textView"
-        android:layout_alignEnd="@+id/buttonconn"
-        app:srcCompat="@mipmap/leceladon_managing3" />
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="58dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editTextlog"
-        android:layout_alignStart="@+id/textView2"
-        android:text="@string/login"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="2dp" />
-
     <EditText
         android:id="@+id/editTextlog"
         android:layout_width="wrap_content"
@@ -53,11 +35,11 @@
 
     <EditText
         android:id="@+id/editTextpsw"
-        android:layout_width="241dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="230dp"
+        android:layout_alignStart="@+id/editTextlog"
+        android:layout_marginBottom="232dp"
         android:ems="10"
         android:inputType="textPassword"
         android:text="pas1234" />
@@ -71,15 +53,25 @@
         android:layout_marginBottom="162dp"
         android:text="Se Connecter" />
 
-
-
-    <!--  <Button
-        android:id="@+id/buttonlink"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="58dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView2"
+        android:layout_above="@+id/editTextlog"
+        android:layout_alignStart="@+id/textView2"
+        android:text="@string/login"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <Button
+        android:id="@+id/buttonlink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="71dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp"
         android:text="@string/crer_cmp" />
 
     <Button
@@ -88,7 +80,26 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/buttonlink"
         android:layout_toEndOf="@+id/textView2"
-        android:text="inv" />
+        android:text="inv"
+        android:visibility="invisible" />
 
--->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        app:srcCompat="@mipmap/leceladon_managing3" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="33dp"
+        android:layout_height="28dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="62dp"
+        app:srcCompat="@mipmap/a92589064" />
+
 </RelativeLayout>
