@@ -22,6 +22,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sam.leceladon_managing_10.Leceladon;
 import com.example.sam.leceladon_managing_10.R;
+import com.example.sam.leceladon_managing_10.new_inventaire;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
@@ -123,22 +125,6 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
                        queue.add(stringRequest);
 
 
-       /* lsv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent newinv = new Intent(getApplicationContext(),
-                        New2Activity.class);
-                newinv.putExtra("libelle_produit", lsv.get);
-                newinv.putExtra("quantite", );
-                newinv.putExtra("date_exp", );
-                newinv.putExtra("", );
-
-                startActivity(newinv);
-
-                String main = lsv.getSelectedItem().toString();
-                System.out.print(main);
-            }
-        });*/
     }
 
     @Override
@@ -147,7 +133,10 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 System.out.print("kskss");
-                Intent in = new Intent(index2Activity.this, New2Activity.class);
+                //for detaille information
+
+                Intent in = new Intent(index2Activity.this, new_inventaire.class);
+
                 startActivity(in);
 
                 finish();
@@ -258,49 +247,34 @@ class listInventaire extends BaseAdapter
 
     }
 }
-
-
-
-
-
 /*
- for (i = 0; i < lis.size(); i++)
-        { System.out.println("size" +lis.size());
-            Log.i("ool", lis.get(i).toString());
-         /*     holder.lblInv.setText(lis.get(i).get("lib_inv"+i).toString());
-        holder.quantit.setText(lis.get(i).get("quantite").toString());
-       Log.i("loo", lis.get(i).toString());
-            holder.date_exp.setText(lis.get(i).get("date_expi"+i).toString());
-                    holder.date_c.setText(lis.get(i).get("date_crt"+i).toString());
-
-                    }
-//show_inv = view.findViewById(R.id.btn); holder.date_exp = view.findViewById(R.id.txtdat);
-            //   holder.show_inv=view.findViewById(R.id.btn);
-            //holder.idinv.setText(lis.get(i).get("idinv").toString());
-     holder.date_exp.setText(lis.get(i).get("date_expiration").toString());
-  holder.show_inv.setOnClickListener(new View.OnClickListener()
-          {
+Modificattion Inven
+holder.lblInv.setText(lis.get(i).get("lib_inv").toString());
+            holder.quantit.setText(lis.get(i).get("quan").toString());
+            holder.date_exp.setText(lis.get(i).get("date_expi").toString());
+            holder.date_c.setText(lis.get(i).get("date_crt").toString());
+            holder.show_inv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent newinv = new Intent(context, New2Activity.class);
-                    newinv.putExtra("lblInv", String.valueOf(holder.lblInv));
-                    newinv.putExtra("quantit", String.valueOf(holder.quantit));
-                  //  newinv.putExtra("date_expiration", String.valueOf(holder.date_exp));
-                    //  newinv.putExtra("lblInv", String.valueOf(holder.date_exp));
-                    context.startActivity(newinv);
-                }
-            });
+                    Intent newinv = new Intent();
+                    newinv.setClass(context, Leceladon.class);
+                    newinv.setAction(Leceladon.class.getName());
+                    newinv.setFlags(
+                            Intent.FLAG_ACTIVITY_NEW_TASK
+                                    | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                    newinv.putExtra("lblInv", lis.get(i).get("lib_inv").toString());
+                    newinv.putExtra("quantit", lis.get(i).get("quan").toString());
+                    newinv.putExtra("date_expiration", lis.get(i).get("date_expi").toString());
+                    newinv.putExtra("date_c",lis.get(i).get("date_crt").toString());
+                    newinv.putExtra("bon_cmd",lis.get(i).get("bon_cmd").toString());
+                    newinv.putExtra("renouvelle",lis.get(i).get("renouvelle").toString());
+                    newinv.putExtra("date_renvo",lis.get(i).get("date_renou").toString());
+                  //  newinv.putExtra("bonc",bonc);
 
-JSONArray jarr = new JSONArray(response);
-                             System.out.println("lenght"+jarr);
-                             System.out.println("lenght"+jarr.length());$
-                             JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(0)));
-                             review.put("lblInv", jObj.get("libelle_produit"));
-                             review.put("quantit", jObj.get("quantite"));
-                             review.put("date_exp", jObj.get("date_exp"));
-                             listvi.add(review);
-                             listAd = new listInventaire(getApplicationContext(), listvi);
-                             lsv.setAdapter(listAd);
-                             Toast toast = Toast.makeText(getApplicationContext()
-                                     , "" + response, Toast.LENGTH_LONG);
-                             toast.show();*/
+                    context.startActivity(newinv);
+ */
+
+
+
+
+

@@ -31,7 +31,7 @@ public class Leceladon extends AppCompatActivity
     EditText inv_date;
     EditText inv_date_exp;
     EditText inv_qu;
-    EditText bon_cmd;
+ //   EditText bon_cmd;
     EditText date_ren;
     RadioButton oui;
     RadioButton non;
@@ -46,22 +46,21 @@ public class Leceladon extends AppCompatActivity
             inv_date=findViewById(R.id.date_c);
             inv_qu=findViewById(R.id.txtquan);
             inv_date_exp=findViewById(R.id.inv_dat_exp);
-            bon_cmd=findViewById(R.id.bon_cmd);
+       //     bon_cmd=findViewById(R.id.bon_cmd);
             date_ren = findViewById(R.id.date_renvou);
             oui=findViewById(R.id.radioButton);
             non=findViewById(R.id.radioButton2);
             modif=findViewById(R.id.btn_valide_nv_inv);
-            lib_inv.setText(getIntent().getStringExtra("lblInv"));
+             lib_inv.setText(getIntent().getStringExtra("lblInv"));
             inv_qu.setText(getIntent().getStringExtra("quantit"));
-            bon_cmd.setText(getIntent().getStringExtra("id_bonC"));
+//            bon_cmd.setText(getIntent().getStringExtra("id_bonC"));
             inv_date_exp.setText(getIntent().getStringExtra("date_expiration"));
             inv_date.setText(getIntent().getStringExtra("date_c"));
-            bon_cmd.setText(getIntent().getStringExtra("bon_cmd"));
             date_ren.setText(getIntent().getStringExtra("date_renvo"));
-  /*          renvou=getIntent().getStringExtra("renouvelle");
+          renvou=getIntent().getStringExtra("renouvelle");
 
              System.out.print("renvo"+renvou);
-*/
+
             if (getIntent().getStringExtra("renouvelle").equals("N"))
             {
                 non.setChecked(true);
@@ -73,7 +72,7 @@ public class Leceladon extends AppCompatActivity
                 System.out.print("N");
                 oui.setChecked(true);
                 non.setChecked(false);
-            } /**/
+            }
         modif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,7 +81,7 @@ public class Leceladon extends AppCompatActivity
 
                 startActivity(intent);
             }
-        });
+        });/* *//**/
     }
 
 

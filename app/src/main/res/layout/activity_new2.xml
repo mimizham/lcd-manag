@@ -10,114 +10,105 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/textViewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:layout_marginTop="1dp"
-                android:text="@string/lib_inv" />
+                android:text="Ajouter Inventaire 2" />
+
+            <TextView
+                android:id="@+id/textView_fac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:text="@string/ref_fact" />
 
 
             <EditText
-                android:id="@+id/etlib"
+                android:id="@+id/etfac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView6"
+                android:layout_below="@+id/textView_fac"
                 android:inputType="textPersonName" />
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/textView_bonc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/etlib"
-                android:text="@string/Quantite" />
+                android:text="@string/ref_bonc" />
             <!-- ajouter un nouveau inventaire -->
 
             <EditText
-                android:id="@+id/etquan"
+                android:id="@+id/etbon_c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView7"
+                android:layout_below="@+id/textView_bonc"
                 android:inputType="number" />
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/textView8_n"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/etquan"
-                android:text="@string/date_renvo" />
+                android:layout_below="@+id/etbon_c"
+                android:text="@string/ref_prod" />
 
             <EditText
-                android:id="@+id/etrenv"
+                android:id="@+id/etprod"
                 android:layout_width="449dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView11"
                 android:layout_toEndOf="@+id/textView11"
-                android:inputType="datetime"/>
+                android:inputType="textPersonName"/>
 
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/textView9_s"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/etdatexp"
-                android:text="@string/type_prod" />
+                android:layout_below="@+id/etprod"
+                android:text="@string/statut_st" />
+
+
 
             <EditText
-                android:id="@+id/etdatexp"
+                android:id="@+id/etstatu_st"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@id/textView8"
-                android:layout_toEndOf="@id/textView8"
-                android:inputType="datetime" />
-
-
-
-             <TextView
-                 android:id="@+id/textView10"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_alignParentStart="true"
-                 android:layout_below="@id/etdatexp"
-                 android:layout_toEndOf="@id/ettypepro"
-                 android:text="Etat produit" />
-
-            <EditText
-                android:id="@+id/ettypepro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@id/textView10"
-                android:layout_toEndOf="@id/textView10"
+                android:layout_below="@id/textView9_s"
+                android:layout_toEndOf="@id/textView9_s"
                 />
 
+
+
+
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@id/textView11"
-                android:text="Date d'expiration:" />
-
-               <EditText
-                 android:id="@+id/date_expir"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_alignStart="@+id/ettypepro"
-                 android:layout_below="@id/textView12"
-                 android:inputType="datetime" />
-
-
-
+                android:layout_below="@id/textView9_s"
+                android:text="date renouvelloment" />
+            <EditText
+                android:id="@+id/date_renv_v"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/textView12"
+                android:layout_toEndOf="@id/textView12"
+                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -129,16 +120,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="50dp"
-                    android:text="Envoyer" />
+
+                    android:text="@string/suivant" />
 
                 <Button
                     android:id="@+id/retour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_marginRight="50dp"
-                    android:text="Annuler" />
+
+                    android:text="@string/annuler" />
             </LinearLayout>
         </LinearLayout>
 
@@ -146,22 +137,9 @@
 </RelativeLayout>
     <!--    si le produit est renouvelle saisire la date sinon no type hiden yah
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@id/ettetatpro"
-                android:text="date renouvelloment" />
-                         <EditText
-                        android:id="@+id/idprod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@id/textView12"
-                        android:layout_toEndOf="@id/textView12"
-                        android:text="pro" />
-
-
 
           -->
+
+
+
+

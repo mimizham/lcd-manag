@@ -82,9 +82,21 @@ public class New2Activity extends AppCompatActivity implements  View.OnClickList
                                 System.out.print(newsinv);
 
                                    try {
-                                        //Parsing the fetched Json String to JSON Object
+                                   /*
+                                       lib_inv.setText(getIntent().getStringExtra("lblInv"));
+
+                                       inv_qu.setText(getIntent().getStringExtra("quantit"));;
+                                       inv_date_exp.setText(getIntent().getStringExtra("date_expiration"));
+                                       inv_date.setText(getIntent().getStringExtra("etat"));
+                                       bon_cmd.setText(getIntent().getStringExtra("bon_cmd"));
+                                       date_ren.setText(getIntent().getStringExtra("tock_tel"));
+                                       date_ren.setText(getIntent().getStringExtra("prod_renv"));
+ */
+
+
+                                //Parsing the fetched Json String to JSON Object
                                         JSONArray j = new JSONArray(newsinv);
-                                        System.out.println(j);
+                                        System.out.println("new activit"+j);
                                         JSONObject jsonobject = j.getJSONObject(0);
                                         System.out.println("jsonobject" + jsonobject);
                                         String result = "";
@@ -203,4 +215,103 @@ public class New2Activity extends AppCompatActivity implements  View.OnClickList
     //remplir le spinner pour afficher les donnes
 
 }*/
+  /*
+   final RequestQueue queue = Volley.newRequestQueue(new_inventaire.this);
+        final StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (response != null && response.length() > 0)
+                        {
+                            if (!TextUtils.isEmpty(lib_inv.getText().toString().trim()) && !TextUtils.isEmpty(inv_qu.getText().toString().trim()) && !TextUtils.isEmpty(inv_date_exp.getText().toString().trim())
+                                    && !TextUtils.isEmpty(date_ren.getText().toString().trim()) && !TextUtils.isEmpty(eta_pro.getText().toString().trim()) && !TextUtils.isEmpty(type_pr.getText().toString().trim())) {
+
+                            try {
+
+                                    JSONObject new_inv = new JSONObject(response);
+                                } catch (JSONException em)
+                                {
+                                  System.out.println("Json error" + em);
+
+/*
+          lib_inv.setText(getIntent().getStringExtra("lblInv"));
+            inv_qu.setText(getIntent().getStringExtra("quantit"));
+            bon_cmd.setText(getIntent().getStringExtra("id_bonC"));
+            inv_date_exp.setText(getIntent().getStringExtra("date_expiration"));
+            inv_date.setText(getIntent().getStringExtra("date_c"));
+            bon_cmd.setText(getIntent().getStringExtra("bon_cmd"));
+            date_ren.setText(getIntent().getStringExtra("date_renvo"));
+             Intent newinv = new Intent();
+                    newinv.setClass(context, Leceladon.class);
+                    newinv.setAction(Leceladon.class.getName());
+                    newinv.setFlags(
+                            Intent.FLAG_ACTIVITY_NEW_TASK
+                                    | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                    newinv.putExtra("lblInv", lis.get(i).get("lib_inv").toString());
+                    newinv.putExtra("quantit", lis.get(i).get("quan").toString());
+                    newinv.putExtra("date_expiration", lis.get(i).get("date_expi").toString());
+                    newinv.putExtra("date_c",lis.get(i).get("date_crt").toString());
+                    newinv.putExtra("bon_cmd",lis.get(i).get("bon_cmd").toString());
+                    newinv.putExtra("renouvelle",lis.get(i).get("renouvelle").toString());
+                    newinv.putExtra("date_renvo",lis.get(i).get("date_renou").toString());
+                  //  newinv.putExtra("bonc",bonc);
+
+                    context.startActivity(newinv);
+
+                                }
+                                        }
+                                        else
+                                        {
+
+                                        }
+                                        }
+                                        else
+                                        {System.out.println("no server response");
+                                        Toast.makeText(getApplicationContext(), "erreur conexion", Toast.LENGTH_SHORT).show();
+
+                                        Toast.makeText(getApplicationContext(), "Merci de remplire les champs", Toast.LENGTH_SHORT).show();
+                                        }
+                                        }
+
+                                        }
+                                        ,
+
+
+                                        new Response.ErrorListener()
+                                        {
+@Override
+public void onErrorResponse(VolleyError error)
+        {
+
+        System.out.println("error con" + error);
+        Toast.makeText(getApplicationContext(), "veuillez verifier votre conexion", Toast.LENGTH_SHORT).show();
+
+        error.printStackTrace();
+        }
+
+
+        }) {
+@Override
+protected Map<String, String> getParams() {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("libelle_produit", lib);
+        params.put("prod_renvou", etat);
+        params.put("type_produit",ty);
+        params.put("quantite", qau);
+        params.put("date_exp",dat_ex);
+
+        return params;
+        }
+
+
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+        3000,
+        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        queue.add(stringRequest);
+        }
+        }
+
+        */
 

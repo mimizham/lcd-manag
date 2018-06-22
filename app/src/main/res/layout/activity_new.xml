@@ -119,8 +119,13 @@
                 android:id="@+id/inscrire"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="S'inscrire" />
+                android:text="@string/inscrir" />
 
+            <Button
+                android:id="@+id/ann"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/annuler" />
         </LinearLayout>
 
 

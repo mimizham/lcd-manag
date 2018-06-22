@@ -17,6 +17,12 @@
     <string name="oui">OUI</string>
     <string name="non">NON</string>
     <string name="bon_c">Bon de commande:</string>
+    <string name="suivant">Suivant</string>
+    <string name="inscrir">S\'inscrire</string>
+    <string name="ref_fact">Réference facture:</string>
+    <string name="ref_bonc">Réference Bon de commande:</string>
+    <string name="ref_prod">Réference produit:</string>
+    <string name="statut_st">Statut Stock:</string>
 
     <string name="title_activity_login">Sign in</string>
 
