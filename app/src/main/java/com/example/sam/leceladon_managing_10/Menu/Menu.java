@@ -12,12 +12,13 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.example.sam.leceladon_managing_10.Inventaire.New2Activity;
+import com.example.sam.leceladon_managing_10.Leceladon;
 import com.example.sam.leceladon_managing_10.MainActivity;
 import com.example.sam.leceladon_managing_10.R;
 
 public class Menu extends AppCompatActivity {
 
-    RelativeLayout r,d,m ;
+    RelativeLayout r,d,m,ra ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,19 @@ public class Menu extends AppCompatActivity {
         r= findViewById(R.id.relativeLInventory);
         d=findViewById(R.id.relativeLDelivry);
         m=findViewById(R.id.relativeDeliveryM);
+        ra=findViewById(R.id.relativeaddLInventory);
         r.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent1 = new Intent(Menu.this, index2Activity.class);
+                // intent.putExtra("response", response);
+                startActivity(intent1);
+
+
+
+            }
+        });
+        ra.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent1 = new Intent(Menu.this, New2Activity.class);

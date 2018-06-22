@@ -85,8 +85,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200px"
-        android:layout_height="200px"
+        android:layout_width="102dp"
+        android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"

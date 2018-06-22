@@ -42,6 +42,39 @@
             android:layout_height="match_parent">
 
             <RelativeLayout
+                android:id="@+id/relativeaddLInventory"
+                android:layout_width="wrap_content"
+                android:layout_height="74dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/relativeLInventory"
+                android:layout_marginEnd="97dp"
+                android:clickable="true"
+                tools:layout_editor_absoluteX="53dp"
+                tools:layout_editor_absoluteY="271dp">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    style="@style/labelinfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Ajouter"
+                    android:textSize="10sp"
+                    tools:layout_editor_absoluteX="71dp"
+                    tools:layout_editor_absoluteY="335dp" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="36dp"
+                    android:layout_height="31dp"
+                    android:layout_centerInParent="true"
+                    app:layout_constraintBottom_toTopOf="@+id/textView16"
+                    app:srcCompat="@mipmap/a85871564"
+                    tools:layout_editor_absoluteX="71dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/relativeLDelivry"
                 android:layout_width="wrap_content"
                 android:layout_height="79dp"
@@ -78,8 +111,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="74dp"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="32dp"
+                android:layout_marginStart="91dp"
                 android:clickable="true"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="271dp">
