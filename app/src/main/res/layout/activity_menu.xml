@@ -160,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:text="MyDeliveries"
+                    android:text="Mes Livraison"
                     android:textSize="10sp"
                     tools:layout_editor_absoluteX="71dp"
                     tools:layout_editor_absoluteY="335dp" />
