@@ -12,7 +12,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,6 +41,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView4"
             android:inputType="numberSigned"/>
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtquan"
+                android:text="@string/date_cr_p"/>
+            <EditText
+                android:id="@+id/date_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="datetime"
+                android:layout_below="@+id/textView9"
+                />
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
@@ -74,6 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/date_renvou"
         android:text="@string/prod_renouv"/>
+
 
     <RadioGroup
         android:id="@+id/grp_radio"

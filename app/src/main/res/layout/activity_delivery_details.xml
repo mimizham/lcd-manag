@@ -62,9 +62,7 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="159dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="61dp"
         android:text="Adresse :"
         android:textColor="@color/colorBgOppos" />
 
@@ -109,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView19"
         android:layout_alignStart="@+id/button_products"
-        android:background="@color/colorOk"
+        android:background="@color/colorBgOppos"
         android:text="Livré"
         android:visibility="invisible" />
 

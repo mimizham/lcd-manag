@@ -1,9 +1,11 @@
 package com.example.sam.leceladon_managing_10;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.sam.leceladon_managing_10.Inventaire.index2Activity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,6 +35,7 @@ public class Leceladon extends AppCompatActivity
     EditText date_ren;
     RadioButton oui;
     RadioButton non;
+    Button modif;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -43,10 +47,10 @@ public class Leceladon extends AppCompatActivity
             inv_qu=findViewById(R.id.txtquan);
             inv_date_exp=findViewById(R.id.inv_dat_exp);
             bon_cmd=findViewById(R.id.bon_cmd);
-         date_ren = findViewById(R.id.date_renvou);
-        oui=findViewById(R.id.radioButton);
-
-        non=findViewById(R.id.radioButton2);
+            date_ren = findViewById(R.id.date_renvou);
+            oui=findViewById(R.id.radioButton);
+            non=findViewById(R.id.radioButton2);
+            modif=findViewById(R.id.btn_valide_nv_inv);
             lib_inv.setText(getIntent().getStringExtra("lblInv"));
             inv_qu.setText(getIntent().getStringExtra("quantit"));
             bon_cmd.setText(getIntent().getStringExtra("id_bonC"));
@@ -70,7 +74,15 @@ public class Leceladon extends AppCompatActivity
                 oui.setChecked(true);
                 non.setChecked(false);
             } /**/
+        modif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent intent = new Intent(Leceladon.this, new_inventaire.class);
+
+                startActivity(intent);
+            }
+        });
     }
 
 

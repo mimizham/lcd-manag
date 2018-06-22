@@ -47,7 +47,7 @@ public class SQLliteUser extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
                 + KEY_TOKEN + " TEXT ," + KEY_IDU+ " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL "+")";
-        System.out.println(CREATE_LOGIN_TABLE);
+        System.out.println("crete"+CREATE_LOGIN_TABLE);
 
         sqLiteDatabase.execSQL(CREATE_LOGIN_TABLE);
         Log.d(TAG, "Database tables created"+CREATE_LOGIN_TABLE);

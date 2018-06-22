@@ -15,8 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"  android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,6 +27,8 @@
         <activity android:name=".Inventaire.index2Activity" />
         <activity android:name=".Inventaire.New2Activity" />
         <activity android:name=".Inventaire.DateTime" />
+        <activity android:name=".new_inventaire"></activity>
+
         <activity android:name=".Menu.Menu" />
         <activity android:name=".Delivery.DeliveryMain" />
         <activity android:name=".Delivery.DeliveryDetails" />
