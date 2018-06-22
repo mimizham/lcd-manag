@@ -48,7 +48,7 @@ public class DeliveryMain extends AppCompatActivity {
         Log.d("ill","001");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_main);
-        txt=findViewById(R.id.textView13);
+
         myListView= (ListView) findViewById(R.id.waitinglist);
         GetRequest();
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
