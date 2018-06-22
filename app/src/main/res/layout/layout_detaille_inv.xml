@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="11dp"
+        android:layout_alignParentStart="true"
+        android:text="@string/lib_inv" />
+
+    <TextView
+        android:id="@+id/etlibinv_dt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/txt"
+        android:layout_marginLeft="0dp"
+        android:text="xxxxhj" />
+
+
+   <TextView
+         android:id="@+id/txt2_dt"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/etlibinv_dt"
+         android:text="@string/Quantite" />
+
+    <TextView
+        android:id="@+id/etquan_dt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt2_dt"
+        android:text="kkkk" />
+
+     <TextView
+         android:id="@+id/txt3_dt"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/etquan_dt"
+         android:text="@string/date_entr_inv" />
+
+     <TextView
+         android:id="@+id/txtdat_dt"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/txt3_dt"
+         android:text="jjjjj" />
+
+
+     <TextView
+         android:id="@+id/txt4_dt"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/txtdat_dt"
+         android:text="@string/date_expir" />
+
+     <TextView
+         android:id="@+id/txtdat_exp_dt"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/txt4_dt"
+         android:text="hhhh" />
+     <TextView
+         android:id="@+id/textView10_dt"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/txtdat_exp_dt"
+          android:text="Etat produit"
+         />
+    <TextView
+        android:id="@+id/etetat_prod_dt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView10_dt"
+        android:text="hhhh" />
+     <TextView
+         android:id="@+id/textViewRen_dt"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/etetat_prod_dt"
+         android:text="@string/prod_renouv"/>
+
+
+     <RadioGroup
+         android:id="@+id/grp_radio_dt"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/textViewRen_dt"
+         android:orientation="horizontal">
+
+
+         <RadioButton
+             android:id="@+id/radioButton1_dt"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/oui"
+             android:layout_marginRight="50dp"
+             android:checked="true"
+             android:textSize="10dp" />
+
+         <RadioButton
+             android:id="@+id/radioButton2_dt"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="50dp"
+             android:checked="false"
+             android:text="@string/non"
+             android:textSize="10dp" />
+     </RadioGroup>
+    <TextView
+        android:id="@+id/txtf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_radio_dt"
+        android:text="@string/name_forni" />
+
+    <TextView
+        android:id="@+id/etforni_dt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/txtf"
+
+        android:text="xxxxhj" />
+    <TextView
+        android:id="@+id/txtbc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etforni_dt"
+        android:text="@string/ref_bonc" />
+
+    <TextView
+        android:id="@+id/etbonc_dt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/txtbc"
+
+        android:text="xxxxhj" />
+    <TextView
+        android:id="@+id/txtfac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etbonc_dt"
+        android:text="@string/ref_fact" />
+
+    <TextView
+        android:id="@+id/etfac_dt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/txtfac"
+
+        android:text="xxxxhj" />
+
+
+  <!--  -->
+    <Button
+        android:id="@+id/ret_dt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etfac_dt"
+        android:text="Retour"/>
+
+</RelativeLayout>

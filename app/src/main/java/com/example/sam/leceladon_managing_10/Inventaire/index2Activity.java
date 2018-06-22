@@ -14,15 +14,17 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.sam.leceladon_managing_10.Leceladon;
+import com.example.sam.leceladon_managing_10.MainActivity;
+import com.example.sam.leceladon_managing_10.Menu.Menu;
 import com.example.sam.leceladon_managing_10.R;
-import com.example.sam.leceladon_managing_10.new_inventaire;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -67,34 +69,51 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
         final StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>()
                 {
-                    @Override
+
+                            @Override
                     public void onResponse(String response)
-                    {
-                        try
+                    { //Log.i("res", response);
+                    try
                         {
-                            Log.i("res", response);
-                              JSONArray jarr = new JSONArray(response);
-                            listvi = new ArrayList<HashMap<String, Object>>();
-                            for (int i = 0; i < jarr.length(); i++)
+                            JSONArray jarr = new JSONArray(response);
+
+                            JSONObject jsonobj = jarr.getJSONObject(0);
+                            System.out.println("jso" +String.valueOf(jsonobj));
+                            switch (jsonobj.keys().next())
                             {
-
-                                JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(i)));
-                                review = new HashMap<String, Object>();
-
-                                review.put("lib_inv", jObj.get("libelle_produit"));
-                                review.put("quan",jObj.get("quantite"));
-                                review.put("date_expi", jObj.get("date_exp"));
-                                review.put("date_crt",jObj.get("date_entre"));
-                                review.put("bon_cmd",jObj.get("id_bonC"));
-                                review.put("renouvelle",jObj.get("prod_renvou"));
-                                review.put("date_renou",jObj.get("date_renvou"));
+                                case "libelle_produit":
+                                {
+                                    listvi = new ArrayList<HashMap<String, Object>>();
+                                    for (int i = 0; i < jarr.length(); i++)
+                                    {
+                                        JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(i)));
+                                        System.out.println("jarr" +String.valueOf(jObj));
+                                        review = new HashMap<String, Object>();
+                                        review.put("lib_inv", jObj.get("libelle_produit"));
+                                        review.put("quan",jObj.get("quantite"));
+                                        review.put("date_expi", jObj.get("date_exp"));
+                                        review.put("date_crt",jObj.get("date_entre"));
+                                        review.put("bon_cmd",jObj.get("id_bonC"));
+                                        review.put("renouvelle",jObj.get("prod_renvou"));
+                                        review.put("date_renou",jObj.get("date_renvou"));
                              /*     System.out.println("i" +String.valueOf(jObj.get("prod_renvou")));
                                bonc= String.valueOf(jObj.get("id_bonC"));
                                 prod_ren=String.valueOf(jObj.get("prod_renvou"));*/
-                                listvi.add(review);
-                                listAd = new listInventaire(getApplicationContext(), listvi);
-                               //Log.i("kk", String.valueOf(listvi));
-                                lsv.setAdapter(listAd);
+                                        listvi.add(review);
+                                        listAd = new listInventaire(getApplicationContext(), listvi);
+                                        //Log.i("kk", String.valueOf(listvi));
+                                        lsv.setAdapter(listAd);
+                                    }
+
+
+                                }
+                                break;
+                                case "erreur":
+                                {
+                                    Intent intent = new Intent(index2Activity.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+                                break;
                             }
 
                         }

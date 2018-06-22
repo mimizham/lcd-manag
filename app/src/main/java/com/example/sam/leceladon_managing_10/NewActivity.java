@@ -44,7 +44,6 @@ public class NewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
 
-        final TextView txtc = findViewById(R.id.textView5);
         btnnew = findViewById(R.id.inscrire);
         edtNom = findViewById(R.id.editTextnom);
         edtPerenom = findViewById(R.id.editTextprenom);

@@ -1,47 +1,29 @@
 package com.example.sam.leceladon_managing_10.Inventaire;
 
 import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.sam.leceladon_managing_10.Leceladon;
-import com.example.sam.leceladon_managing_10.NewActivity;
 import com.example.sam.leceladon_managing_10.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.text.CollationElementIterator;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.widget.Toast.LENGTH_SHORT;
 
 public class New2Activity extends AppCompatActivity implements  View.OnClickListener{
   // DatePicker dpk; implements AdapterView.OnItemSelectedListener
@@ -66,7 +48,7 @@ public class New2Activity extends AppCompatActivity implements  View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new2);
         btn = findViewById(R.id.newInv);
-        final TextView txtc = findViewById(R.id.textView5);
+
         lblinv = findViewById(R.id.txtinv);
         lblquan = findViewById(R.id.txtquan);
         btn=findViewById(R.id.newInv);

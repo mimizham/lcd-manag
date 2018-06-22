@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.sam.leceladon_managing_10.new_inventaire">
+    tools:context="com.example.sam.leceladon_managing_10.Inventaire.new_inventaire">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -112,7 +112,7 @@
             android:id="@+id/textViewRen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/date_renvou"
+            android:layout_below="@id/ettypepro_nv"
             android:text="@string/prod_renouv"/>
             <RadioGroup
                 android:id="@+id/grp_radio_nv"

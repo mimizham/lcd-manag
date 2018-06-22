@@ -12,8 +12,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.example.sam.leceladon_managing_10.Inventaire.New2Activity;
-import com.example.sam.leceladon_managing_10.Leceladon;
-import com.example.sam.leceladon_managing_10.MainActivity;
 import com.example.sam.leceladon_managing_10.R;
 
 public class Menu extends AppCompatActivity {
@@ -23,6 +21,9 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        final String resp = getIntent().getStringExtra("tock_tel");
+        System.out.print("sqq"+resp);
+
         r= findViewById(R.id.relativeLInventory);
         d=findViewById(R.id.relativeLDelivry);
         m=findViewById(R.id.relativeDeliveryM);
@@ -31,7 +32,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent1 = new Intent(Menu.this, index2Activity.class);
-                // intent.putExtra("response", response);
+                intent1.putExtra("tock_tel", resp);
                 startActivity(intent1);
 
 
@@ -42,7 +43,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent1 = new Intent(Menu.this, New2Activity.class);
-                // intent.putExtra("response", response);
+                intent1.putExtra("tock_tel", resp);
                 startActivity(intent1);
 
 
@@ -53,7 +54,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent1 = new Intent(Menu.this, DeliveryMain.class);
-                // intent.putExtra("response", response);
+                intent1.putExtra("tock_tel", resp);
                 startActivity(intent1);
 
 

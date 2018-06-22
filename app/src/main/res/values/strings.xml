@@ -24,6 +24,8 @@
     <string name="ref_prod">Réference produit:</string>
     <string name="statut_st">Statut Stock:</string>
 
+    <!-- fornisseur -->
+    <string name="name_forni">Fornisseur:</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->

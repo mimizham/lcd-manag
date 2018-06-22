@@ -1,15 +1,14 @@
-package com.example.sam.leceladon_managing_10;
+package com.example.sam.leceladon_managing_10.Inventaire;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
-import com.example.sam.leceladon_managing_10.Inventaire.index2Activity;
+import com.example.sam.leceladon_managing_10.R;
 
 public class new_inventaire extends AppCompatActivity {
     String url="http://work.le-celadon.ma/Managing_Celadon/Inventaires/create";

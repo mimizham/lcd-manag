@@ -18,7 +18,7 @@ public class SQLliteUser extends SQLiteOpenHelper
 {
     //private static final String TAG = SQLiteHandler.class.getSimpleName();
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String TAG = SQLliteUser.class.getSimpleName();
 
     // Database Name
