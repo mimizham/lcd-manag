@@ -53,7 +53,7 @@
                 tools:layout_editor_absoluteY="271dp">
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/textView16a"
                     style="@style/labelinfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,11 +65,11 @@
                     tools:layout_editor_absoluteY="335dp" />
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/imageView6a"
                     android:layout_width="36dp"
                     android:layout_height="31dp"
                     android:layout_centerInParent="true"
-                    app:layout_constraintBottom_toTopOf="@+id/textView16"
+                    app:layout_constraintBottom_toTopOf="@+id/textView16a"
                     app:srcCompat="@mipmap/a85871564"
                     tools:layout_editor_absoluteX="71dp" />
             </RelativeLayout>
