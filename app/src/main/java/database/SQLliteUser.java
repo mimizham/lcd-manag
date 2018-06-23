@@ -30,7 +30,7 @@ public class SQLliteUser extends SQLiteOpenHelper
     private static final String KEY_IDU = "iduc";
     private static final String KEY_TOKEN = "token";
     private String ok;
-    private  Long id_insert;
+    private long id_insert;
     public static String getKeyIdu() {
         return KEY_IDU;
     }
@@ -71,13 +71,15 @@ public class SQLliteUser extends SQLiteOpenHelper
         values.put(KEY_TOKEN, token); // token
        // Insert the new row, returning the primary key value of the new row
         id_insert = db.insert(TABLE_USER, null, values);
-        db.close(); // Closing database connectionreturn id;
         Log.d(TAG, "New user inserted into sqlite: " + id_insert);
+        db.close();
+        // Closing database connectionreturn id;
+
     }
 
-    /*
+    /*  Log.i(TAG, "New user inserted into sqlite: " + id_insert);
      * Getting user data from database
-     */
+     * */
     public String getUserDetails()
     {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -91,7 +93,10 @@ public class SQLliteUser extends SQLiteOpenHelper
         }
         return ok;
     }
-    public ArrayList<HashMap<String, String>> getUserDetails(String all) {
+
+
+    public ArrayList<HashMap<String, String>> getUserDetails(String all)
+    {
         String selectQuery = "SELECT  * FROM " + TABLE_USER;
         SQLiteDatabase db = this.getReadableDatabase();
 

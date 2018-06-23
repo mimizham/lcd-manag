@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     Toast toast;
     Button button;
     Button button2;
-    String url ="https://www.work.le-celadon.ma/Managing_Celadon/Users/login";
+    String url ="http://www.work.le-celadon.ma/Managing_Celadon/Users/login";
     Button button1;
     private SQLliteUser db;
     String tock_tel;
@@ -88,11 +88,13 @@ public class MainActivity extends AppCompatActivity {
                                                 case "token":
                                                 {
                                                     db.addUser(String.valueOf(jsonuser.get("token")));
-                                                    tock_tel= db.getUserDetails();
-                                                    System.out.println("tock tel" + tock_tel);
+
+                                                 tock_tel= db.getUserDetails();
+                                                  // System.out.println("tock tel" + db.getALlUserDetails2());
 
                                                     Intent intent = new Intent(MainActivity.this, Menu.class);
-                                                   intent.putExtra("tock_tel", tock_tel);
+
+                                                  intent.putExtra("tock_tel", tock_tel);
                                                     startActivity(intent);
                                                     break;
                                                 }
@@ -149,10 +151,10 @@ public class MainActivity extends AppCompatActivity {
 
                  };
 
-                /*stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+              stringRequest.setRetryPolicy(new DefaultRetryPolicy(
                         20000,
                         DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));*/
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));  /**/
                 queue.add(stringRequest);
             }
         });

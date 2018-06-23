@@ -25,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sam.leceladon_managing_10.Inventaire.index2Activity;
+import com.example.sam.leceladon_managing_10.MainActivity;
 import com.example.sam.leceladon_managing_10.R;
 
 import org.json.JSONArray;
@@ -36,16 +37,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import database.SQLliteUser;
+
 public class Leceladon extends AppCompatActivity
 {    private List<HashMap<String, Object>> listvi;
 
-    String url = "https://www.work.le-celadon.ma/Managing_Celadon/Inventaires/show";
+    String url = "http://www.work.le-celadon.ma/Managing_Celadon/Inventaires/show";
     TextView txt_inv_dt;
     TextView txt_date_dt;
     TextView txt_date_exp_dt;
     TextView txt_qu_dt;
     TextView bonc_dt;
-    TextView prod_ren_dt;
+    private SQLliteUser db;
+  //  TextView prod_ren_dt;
     TextView fact_dt;
     TextView forni_dt;
     ListView lsv_dt_dt;
@@ -61,6 +65,7 @@ public class Leceladon extends AppCompatActivity
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leceladon);
+        db = new SQLliteUser(getApplicationContext());
         lsv_dt_dt =findViewById(R.id.Detaille_Inventaire);
         txt_inv_dt = findViewById(R.id.etlibinv_dt);
         txt_date_exp_dt = findViewById(R.id.etdatexp);
@@ -70,7 +75,10 @@ public class Leceladon extends AppCompatActivity
         forni_dt=findViewById(R.id.etforni_dt);
         fact_dt=findViewById(R.id.etfac_dt);
         ret_dt= findViewById(R.id.ret_dt);
-            final String resp_dt = getIntent().getStringExtra("tock_tel");
+        final String resp_dt = getIntent().getStringExtra("tock_tel");
+
+        final String id_inv = getIntent().getStringExtra("id_inv");
+        System.out.print("ids_inv"+id_inv+resp_dt);
 
             // Instantiate the RequestQueue.
             final RequestQueue queue = Volley.newRequestQueue(Leceladon.this);
@@ -82,31 +90,48 @@ public class Leceladon extends AppCompatActivity
                         public void onResponse(String response)
                         {
                             try
-                            {
-                                Log.i("res", response);
-                                JSONArray jarr = new JSONArray(response);
-                                listvi_dt = new ArrayList<HashMap<String, Object>>();
-                                for (int i = 0; i < jarr.length(); i++)
+                            {      Log.i("res", response);
+
+                                //JSONArray jarr = new JSONArray(String.valueOf(response));
+                                JSONObject json_show= new JSONObject(String.valueOf(response));
+                                //  JSONObject jarr=json_show.get);
+                            System.out.println("jso" +String.valueOf(json_show.length()));
+                                switch (json_show.keys().next())
                                 {
+                                    case "show":
+                                    {
+                                        listvi_dt = new ArrayList<HashMap<String, Object>>();
+                                        for (int i = 0; i < json_show.length(); i++)
+                                        {
+                                        //   JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(i)));
+                                            review = new HashMap<String, Object>();
+                                            review.put("lib_inv_dt", json_show.get("libelle_produit"));
 
-                                    JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(i)));
-                                    review = new HashMap<String, Object>();
+                                            review.put("quan_dt",json_show.get("quantite"));
+                                            review.put("date_expi_dt", json_show.get("date_exp"));
+                                            review.put("date_crt_dt",json_show.get("date_entre"));
+                                            review.put("bon_cmd_dt",json_show.get("id_bonC"));
+                                            review.put("renouvelle_dt",json_show.get("prod_renvou"));
+                                            review.put("date_renou_dt",json_show.get("date_renvou"));
+                                            review.put("statut_stock",json_show.get("statut_stock"));
+                                            review.put("id_facture",json_show.get("pid_facture"));
+                                            review.put("ref_prod",json_show.get("id_produit"));
+  /* */
+                                            listvi_dt.add(review);
+                                            listAd_dt = new Detaile_Inv(getApplicationContext(), listvi);
+                                            Log.i("kk", String.valueOf(listvi_dt));
+                                            lsv_dt_dt.setAdapter(listAd_dt);
+                                    }
 
-                                    review.put("lib_inv_dt", jObj.get("libelle_produit"));
-                                    review.put("quan",jObj.get("quantite"));
-                                    review.put("date_expi", jObj.get("date_exp"));
-                                    review.put("date_crt",jObj.get("date_entre"));
-                                    review.put("bon_cmd",jObj.get("id_bonC"));
-                                    review.put("renouvelle",jObj.get("prod_renvou"));
-                                    review.put("date_renou",jObj.get("date_renvou"));
-                             /*     System.out.println("i" +String.valueOf(jObj.get("prod_renvou")));
-                               bonc= String.valueOf(jObj.get("id_bonC"));
-                                prod_ren=String.valueOf(jObj.get("prod_renvou"));*/
-                                    listvi_dt.add(review);
-                                listAd_dt = new Detaile_Inv(getApplicationContext(), listvi);
-                                    //Log.i("kk", String.valueOf(listvi));
-                                    lsv_dt_dt.setAdapter(listAd_dt);
-                                }
+                                    }break;
+
+                                    case "erreur":
+                                    {
+                                        Intent intent = new Intent(Leceladon.this, MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                    break;
+                            }
 
                             }
                             catch (Exception e)
@@ -129,7 +154,7 @@ public class Leceladon extends AppCompatActivity
                         {
                             Map<String, String> params = new HashMap<String, String>();
                             params.put("tock", resp_dt);
-                            params.put("tock", resp_dt);
+                            params.put("id_inventaire", id_inv);
                             return params;
                         }
                      };
@@ -185,27 +210,31 @@ public class Leceladon extends AppCompatActivity
                 view = layoutInflater_dt.inflate(R.layout.layout_detaille_inv, viewGroup, false);
 
               holder1.lblInv_dt = view.findViewById(R.id.etlibinv_dt);
-                holder1.quantit_dt = view.findViewById(R.id.etquan_dt);
+               holder1.quantit_dt = view.findViewById(R.id.etquan_dt);
                 holder1.date_exp_dt = view.findViewById(R.id.etdatexp);
                 holder1.date_c_dt = view.findViewById(R.id.txtdat_dt);
                 holder1.bon_c_dt= view.findViewById(R.id.etbonc_dt);
                 holder1.forni_dt= view.findViewById(R.id.etforni_dt);
                 holder1.fact_dt= view.findViewById(R.id.etfac_dt);
-
-                holder1.show_inv_dt= view.findViewById(R.id.btn_inv); /* ;    Log.i("oo", String.valueOf(lis));*/
+                holder1.show_inv_dt= view.findViewById(R.id.btn_inv);  ;   /*  Log.i("oo", String.valueOf(lis));*/
                 view.setTag(holder1);
             }
             else{
                 holder1 = (Detaile_Inv.ViewHolder) view.getTag();
             }
-        /* System.out.println("size" +lis.size());
-            Log.i("ool", lis.get(i).toString());
-       Log.i("loo", lis.get(i).toString());
-            holder.lblInv_dt.setText(lis.get(i).get("lib_inv").toString());
-            holder.quantit.setText(lis.get(i).get("quan").toString());
-            holder.date_exp.setText(lis.get(i).get("date_expi").toString());
-            holder.date_c.setText(lis.get(i).get("date_crt").toString());
-*/
+            System.out.println("size" +lis_dt.size());
+            Log.i("kk", String.valueOf(lis_dt));
+            holder1.lblInv_dt.setText(lis_dt.get(i).get("lib_inv_dt").toString());
+            holder1.quantit_dt.setText(lis_dt.get(i).get("quan_dt").toString());
+            holder1.date_exp_dt.setText(lis_dt.get(i).get("date_expi_dt").toString());
+            holder1.date_c_dt.setText(lis_dt.get(i).get("date_crt_dt").toString());
+            holder1.bon_c_dt.setText(lis_dt.get(i).get("bon_cmd_dt").toString());
+            holder1.forni_dt.setText(lis_dt.get(i).get("date_renou_dt").toString());
+            holder1.fact_dt.setText(lis_dt.get(i).get("staut_stock").toString());
+
+ /*
+   Log.i("ool", lis.get(i).toString());
+       Log.i("loo", lis.get(i).toString());*/
 
 
             return view;

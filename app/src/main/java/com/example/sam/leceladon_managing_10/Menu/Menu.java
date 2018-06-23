@@ -17,11 +17,12 @@ import com.example.sam.leceladon_managing_10.R;
 public class Menu extends AppCompatActivity {
 
     RelativeLayout r,d,m,ra ;
+    String resp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        final String resp = getIntent().getStringExtra("tock_tel");
+         resp= getIntent().getStringExtra("tock_tel");
         System.out.print("sqq"+resp);
 
         r= findViewById(R.id.relativeLInventory);
@@ -65,7 +66,7 @@ public class Menu extends AppCompatActivity {
             public void onClick(View v){
                DeliveryMain.btn=false;
                 Intent intent1 = new Intent(Menu.this, MyDelivery.class);
-                // intent.putExtra("response", response);
+                intent1.putExtra("tock_tel", resp);
               startActivity(intent1);
 
 

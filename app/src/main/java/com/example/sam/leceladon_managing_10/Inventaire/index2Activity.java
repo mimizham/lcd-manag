@@ -33,9 +33,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import database.SQLliteUser;
+
 public class index2Activity extends AppCompatActivity implements View.OnClickListener
 {
-    String url = "https://www.work.le-celadon.ma/Managing_Celadon/Inventaires/index";
+    String url = "http://www.work.le-celadon.ma/Managing_Celadon/Inventaires/index";
     TextView txt_inv;
     TextView txt_date;
     TextView txt_date_exp;
@@ -44,6 +46,8 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
     String prod_ren;
     ListView lsv;
     Button moreinfo;
+    private SQLliteUser db;
+   public String resp;
     private List<HashMap<String, Object>> listvi;
     private listInventaire listAd;
 
@@ -55,14 +59,15 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index2);
+        db = new SQLliteUser(getApplicationContext());
         txt_inv = findViewById(R.id.txtinv);
         txt_date_exp = findViewById(R.id.txtdat_exp);
         txt_date = findViewById(R.id.txtdat);
         txt_qu = findViewById(R.id.txtquan);
         lsv = findViewById(R.id.lvInventaire);
         moreinfo = findViewById(R.id.btn_inv);
-        final String resp = getIntent().getStringExtra("tock_tel");
-
+        resp = getIntent().getStringExtra("tock_tel");
+        //
         // Instantiate the RequestQueue.
         final RequestQueue queue = Volley.newRequestQueue(index2Activity.this);
         // Request a string response from the provided URL.
@@ -96,6 +101,8 @@ public class index2Activity extends AppCompatActivity implements View.OnClickLis
                                         review.put("bon_cmd",jObj.get("id_bonC"));
                                         review.put("renouvelle",jObj.get("prod_renvou"));
                                         review.put("date_renou",jObj.get("date_renvou"));
+                                        review.put("id_inv",jObj.get("id_inventaire"));
+                                        review.put("resp",resp);
                              /*     System.out.println("i" +String.valueOf(jObj.get("prod_renvou")));
                                bonc= String.valueOf(jObj.get("id_bonC"));
                                 prod_ren=String.valueOf(jObj.get("prod_renvou"));*/
@@ -236,14 +243,16 @@ class listInventaire extends BaseAdapter
                     newinv.setFlags(
                             Intent.FLAG_ACTIVITY_NEW_TASK
                                     | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-                    newinv.putExtra("lblInv", lis.get(i).get("lib_inv").toString());
+                    newinv.putExtra("id_inv", lis.get(i).get("id_inv").toString());
+                    newinv.putExtra("tock_tel", lis.get(i).get("resp").toString());
+                   /* newinv.putExtra("lblInv", lis.get(i).get("lib_inv").toString());
                     newinv.putExtra("quantit", lis.get(i).get("quan").toString());
                     newinv.putExtra("date_expiration", lis.get(i).get("date_expi").toString());
                     newinv.putExtra("date_c",lis.get(i).get("date_crt").toString());
                     newinv.putExtra("bon_cmd",lis.get(i).get("bon_cmd").toString());
                     newinv.putExtra("renouvelle",lis.get(i).get("renouvelle").toString());
                     newinv.putExtra("date_renvo",lis.get(i).get("date_renou").toString());
-                  //  newinv.putExtra("bonc",bonc);
+                  //  newinv.putExtra("bonc",bonc);*/
 
                     context.startActivity(newinv);
 
