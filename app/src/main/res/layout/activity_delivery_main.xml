@@ -7,12 +7,30 @@
     tools:context=".Delivery.DeliveryMain">
 
 
-
     <ListView
         android:id="@+id/waitinglist"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
         style="@style/ListView"
-        android:layout_alignParentTop="true" />
+        android:layout_width="match_parent"
+        android:layout_height="384dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="149dp" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="85dp"
+        android:layout_height="83dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@mipmap/a195419864" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView14"
+        android:layout_centerHorizontal="true"
+        android:text="Livraisons en cours"
+        android:textColor="@color/colorAccent" />
 </RelativeLayout>
