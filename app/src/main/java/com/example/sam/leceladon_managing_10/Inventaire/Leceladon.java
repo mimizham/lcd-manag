@@ -68,19 +68,19 @@ public class Leceladon extends AppCompatActivity
         db = new SQLliteUser(getApplicationContext());
         lsv_dt_dt =findViewById(R.id.Detaille_Inventaire);
         txt_inv_dt = findViewById(R.id.etlibinv_dt);
-        txt_date_exp_dt = findViewById(R.id.etdatexp);
+        txt_date_exp_dt = findViewById(R.id.txtdat_exp_dt);
         txt_date_dt = findViewById(R.id.txtdat);
         txt_qu_dt = findViewById(R.id.etquan_dt);
         bonc_dt=findViewById(R.id.etbonc_dt);
         forni_dt=findViewById(R.id.etforni_dt);
         fact_dt=findViewById(R.id.etfac_dt);
         ret_dt= findViewById(R.id.ret_dt);
-        final String resp_dt = getIntent().getStringExtra("tock_tel");
+       // final String resp_dt = getIntent().getStringExtra("tock_tel");
+        final String id_inv = String.valueOf(17);
 
-        final String id_inv = getIntent().getStringExtra("id_inv");
-        System.out.print("ids_inv"+id_inv+resp_dt);
+        System.out.print("ids_inv"+id_inv);
 
-            // Instantiate the RequestQueue.
+            // Instantiate the RequestQueue. final String id_inv = getIntent().getStringExtra("id_inv");
             final RequestQueue queue = Volley.newRequestQueue(Leceladon.this);
             // Request a string response from the provided URL.
             final StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -94,35 +94,35 @@ public class Leceladon extends AppCompatActivity
 
                                 //JSONArray jarr = new JSONArray(String.valueOf(response));
                                 JSONObject json_show= new JSONObject(String.valueOf(response));
-                                //  JSONObject jarr=json_show.get);
-                            System.out.println("jso" +String.valueOf(json_show.length()));
+                                JSONObject json_cast= new JSONObject(String.valueOf(json_show.get("show")));
+
+                                System.out.println("jsoncast" +json_cast.get("libelle_produit"));
                                 switch (json_show.keys().next())
                                 {
                                     case "show":
                                     {
-                                        listvi_dt = new ArrayList<HashMap<String, Object>>();
-                                        for (int i = 0; i < json_show.length(); i++)
-                                        {
-                                        //   JSONObject jObj = new JSONObject(String.valueOf(jarr.getJSONObject(i)));
+                                            listvi_dt = new ArrayList<HashMap<String, Object>>();
+                                            System.out.println("list" +listvi_dt);
                                             review = new HashMap<String, Object>();
-                                            review.put("lib_inv_dt", json_show.get("libelle_produit"));
 
-                                            review.put("quan_dt",json_show.get("quantite"));
-                                            review.put("date_expi_dt", json_show.get("date_exp"));
-                                            review.put("date_crt_dt",json_show.get("date_entre"));
-                                            review.put("bon_cmd_dt",json_show.get("id_bonC"));
-                                            review.put("renouvelle_dt",json_show.get("prod_renvou"));
-                                            review.put("date_renou_dt",json_show.get("date_renvou"));
-                                            review.put("statut_stock",json_show.get("statut_stock"));
-                                            review.put("id_facture",json_show.get("pid_facture"));
-                                            review.put("ref_prod",json_show.get("id_produit"));
-  /* */
+                                        review.put("id_inv_dt", json_cast.get("id_inventaire"));
+                                        review.put("lib_inv_dt", json_cast.get("libelle_produit"));
+                                        review.put("quan_dt",json_cast.get("quantite"));
+                                        review.put("date_expi_dt", json_cast.get("date_exp"));
+                                        review.put("date_crt_dt",json_cast.get("date_entre"));
+                                        review.put("bon_cmd_dt",json_cast.get("id_bonC"));
+                                        review.put("renouvelle_dt",json_cast.get("prod_renvou"));
+                                        review.put("date_renou_dt",json_cast.get("date_renvou"));
+                                        review.put("statut_stock",json_cast.get("statut_stock"));
+                                        review.put("id_facture",json_cast.get("id_facture"));
+                                        review.put("ref_prod",json_cast.get("id_produit"));
                                             listvi_dt.add(review);
-                                            listAd_dt = new Detaile_Inv(getApplicationContext(), listvi);
+                                            listAd_dt = new Detaile_Inv(getApplicationContext(), listvi_dt);
                                             Log.i("kk", String.valueOf(listvi_dt));
                                             lsv_dt_dt.setAdapter(listAd_dt);
-                                    }
-
+             /*                               for (int i = 0; i < json_show.length(); i++)
+                                            {}
+ */
                                     }break;
 
                                     case "erreur":
@@ -153,7 +153,7 @@ public class Leceladon extends AppCompatActivity
                         protected Map<String, String> getParams()
                         {
                             Map<String, String> params = new HashMap<String, String>();
-                            params.put("tock", resp_dt);
+                        //    params.put("tock", resp_dt);
                             params.put("id_inventaire", id_inv);
                             return params;
                         }
@@ -211,7 +211,7 @@ public class Leceladon extends AppCompatActivity
 
               holder1.lblInv_dt = view.findViewById(R.id.etlibinv_dt);
                holder1.quantit_dt = view.findViewById(R.id.etquan_dt);
-                holder1.date_exp_dt = view.findViewById(R.id.etdatexp);
+                holder1.date_exp_dt = view.findViewById(R.id.txtdat_exp_dt);
                 holder1.date_c_dt = view.findViewById(R.id.txtdat_dt);
                 holder1.bon_c_dt= view.findViewById(R.id.etbonc_dt);
                 holder1.forni_dt= view.findViewById(R.id.etforni_dt);
@@ -230,13 +230,10 @@ public class Leceladon extends AppCompatActivity
             holder1.date_c_dt.setText(lis_dt.get(i).get("date_crt_dt").toString());
             holder1.bon_c_dt.setText(lis_dt.get(i).get("bon_cmd_dt").toString());
             holder1.forni_dt.setText(lis_dt.get(i).get("date_renou_dt").toString());
-            holder1.fact_dt.setText(lis_dt.get(i).get("staut_stock").toString());
-
+            holder1.fact_dt.setText(lis_dt.get(i).get("statut_stock").toString());
  /*
    Log.i("ool", lis.get(i).toString());
        Log.i("loo", lis.get(i).toString());*/
-
-
             return view;
         }
 
