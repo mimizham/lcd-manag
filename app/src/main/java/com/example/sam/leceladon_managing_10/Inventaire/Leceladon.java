@@ -54,6 +54,7 @@ public class Leceladon extends AppCompatActivity
     TextView forni_dt;
     ListView lsv_dt_dt;
     Button ret_dt;
+    RadioButton oui,non;
     private List<HashMap<String, Object>> listvi_dt;
     private Detaile_Inv listAd_dt;
 
@@ -75,6 +76,7 @@ public class Leceladon extends AppCompatActivity
         forni_dt=findViewById(R.id.etforni_dt);
         fact_dt=findViewById(R.id.etfac_dt);
         ret_dt= findViewById(R.id.ret_dt);
+
        // final String resp_dt = getIntent().getStringExtra("tock_tel");
         final String id_inv = String.valueOf(17);
 
@@ -94,13 +96,13 @@ public class Leceladon extends AppCompatActivity
 
                                 //JSONArray jarr = new JSONArray(String.valueOf(response));
                                 JSONObject json_show= new JSONObject(String.valueOf(response));
-                                JSONObject json_cast= new JSONObject(String.valueOf(json_show.get("show")));
 
-                                System.out.println("jsoncast" +json_cast.get("libelle_produit"));
+
+                            //    System.out.println("jsoncast" +json_cast.get("libelle_produit"));
                                 switch (json_show.keys().next())
                                 {
                                     case "show":
-                                    {
+                                    {  JSONObject json_cast= new JSONObject(String.valueOf(json_show.get("show")));
                                             listvi_dt = new ArrayList<HashMap<String, Object>>();
                                             System.out.println("list" +listvi_dt);
                                             review = new HashMap<String, Object>();
@@ -120,10 +122,8 @@ public class Leceladon extends AppCompatActivity
                                             listAd_dt = new Detaile_Inv(getApplicationContext(), listvi_dt);
                                             Log.i("kk", String.valueOf(listvi_dt));
                                             lsv_dt_dt.setAdapter(listAd_dt);
-             /*                               for (int i = 0; i < json_show.length(); i++)
-                                            {}
- */
-                                    }break;
+                                    }
+                                    break;
 
                                     case "erreur":
                                     {
@@ -216,7 +216,10 @@ public class Leceladon extends AppCompatActivity
                 holder1.bon_c_dt= view.findViewById(R.id.etbonc_dt);
                 holder1.forni_dt= view.findViewById(R.id.etforni_dt);
                 holder1.fact_dt= view.findViewById(R.id.etfac_dt);
-                holder1.show_inv_dt= view.findViewById(R.id.btn_inv);  ;   /*  Log.i("oo", String.valueOf(lis));*/
+                holder1.show_inv_dt= view.findViewById(R.id.btn_inv);
+                holder1.oui=view.findViewById(R.id.radioButton1_dt);
+                holder1.non=view.findViewById(R.id.radioButton2_dt);
+                /*  Log.i("oo", String.valueOf(lis));*/
                 view.setTag(holder1);
             }
             else{
@@ -231,6 +234,18 @@ public class Leceladon extends AppCompatActivity
             holder1.bon_c_dt.setText(lis_dt.get(i).get("bon_cmd_dt").toString());
             holder1.forni_dt.setText(lis_dt.get(i).get("date_renou_dt").toString());
             holder1.fact_dt.setText(lis_dt.get(i).get("statut_stock").toString());
+            if (lis_dt.get(i).get("renouvelle_dt").toString().equals("N"))
+            {
+                holder1.non.setChecked(true);
+                holder1.oui.setChecked(false);
+                Log.i(",oui",lis_dt.get(i).get("renouvelle_dt").toString());
+            }
+            else
+            {
+
+                holder1.oui.setChecked(true);
+                holder1.non.setChecked(false);
+            }
  /*
    Log.i("ool", lis.get(i).toString());
        Log.i("loo", lis.get(i).toString());*/
@@ -248,6 +263,7 @@ public class Leceladon extends AppCompatActivity
             TextView forni_dt;
             TextView date_exp_dt;
             Button show_inv_dt;
+            RadioButton oui,non;
 
         }
     }
