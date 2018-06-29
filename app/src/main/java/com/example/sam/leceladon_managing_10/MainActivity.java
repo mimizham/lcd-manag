@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
+
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -20,15 +20,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.sam.leceladon_managing_10.Inventaire.New2Activity;
-import com.example.sam.leceladon_managing_10.Inventaire.index2Activity;
 import com.example.sam.leceladon_managing_10.Menu.Menu;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -110,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
                                         } catch (JSONException e) {
                                             // JSON error System.out.println(e.printStackTrace());
-                                            Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                            //Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                                             System.out.println("Json error" + e);
                                         }
                                     }
@@ -159,25 +155,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-         button2.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                toast = Toast.makeText(getApplicationContext()
-                        , "log" , LENGTH_SHORT);
-                toast.show();
-               Intent intent1 = new Intent(MainActivity.this, New2Activity.class);
-               // intent.putExtra("response", response);
-                startActivity(intent1);
-            }
-        });
+
         button1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 toast = Toast.makeText(getApplicationContext()
                         , "log" , LENGTH_SHORT);
                 toast.show();
-            Intent intent1 = new Intent(MainActivity.this, index2Activity.class);
+            Intent intent1 = new Intent(MainActivity.this, NewActivity.class);
                // intent1.putExtra("response", res);
                 startActivity(intent1);
             }

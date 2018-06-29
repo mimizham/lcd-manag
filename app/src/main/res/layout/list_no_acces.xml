@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewnom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:text="Nom" />
+
+    <TextView
+        android:id="@+id/Textnom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/Textemail"
+        android:text="sam" />
+
+   <TextView
+        android:id="@+id/textViewemail"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewnom"
+        android:text="@string/prompt_email" />
+
+    <TextView
+        android:id="@+id/Textemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Textnom"
+        android:layout_toEndOf="@+id/txttel"
+        android:text="samio" />
+
+     <TextView
+        android:id="@+id/txttel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_below="@+id/textViewemail"
+        android:text="Telphone" />
+
+    <TextView
+        android:id="@+id/texttelphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txttel"
+        android:layout_alignBottom="@+id/txttel"
+        android:layout_alignEnd="@+id/Textemail"
+        android:text="0881" />
+
+   <TextView
+        android:id="@+id/textView4"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txttel"
+        android:text="Date creation:" />
+
+    <TextView
+        android:id="@+id/dtc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/texttelphone"
+        android:layout_toEndOf="@+id/textView4"
+        android:text="sam@js.com" />
+
+
+    <Button
+        android:id="@+id/btn_active"
+        android:layout_width="wrap_content"
+        android:layout_height="40px"
+        android:layout_alignBaseline="@+id/texttelphone"
+        android:layout_alignBottom="@+id/texttelphone"
+        android:layout_toEndOf="@+id/texttelphone"
+        android:text="Activer" />
+ <!---->
+</RelativeLayout>

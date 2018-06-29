@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\SAM\AndroidStudioProjects\leceladon_managing_10\lcd-manag.iml" filepath="C:\Users\SAM\AndroidStudioProjects\leceladon_managing_10\lcd-manag.iml" />
       <module fileurl="file://$PROJECT_DIR$/leceladon_managing_10.iml" filepath="$PROJECT_DIR$/leceladon_managing_10.iml" />
     </modules>
   </component>

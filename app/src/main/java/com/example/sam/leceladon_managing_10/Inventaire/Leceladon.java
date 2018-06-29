@@ -77,12 +77,12 @@ public class Leceladon extends AppCompatActivity
         fact_dt=findViewById(R.id.etfac_dt);
         ret_dt= findViewById(R.id.ret_dt);
 
-       // final String resp_dt = getIntent().getStringExtra("tock_tel");
-        final String id_inv = String.valueOf(17);
+      final String resp_dt = getIntent().getStringExtra("tock_tel");
 
+        final String id_inv = getIntent().getStringExtra("id_inv");
         System.out.print("ids_inv"+id_inv);
 
-            // Instantiate the RequestQueue. final String id_inv = getIntent().getStringExtra("id_inv");
+            // Instantiate the RequestQueue. final String id_inv = String.valueOf(17);
             final RequestQueue queue = Volley.newRequestQueue(Leceladon.this);
             // Request a string response from the provided URL.
             final StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -153,7 +153,7 @@ public class Leceladon extends AppCompatActivity
                         protected Map<String, String> getParams()
                         {
                             Map<String, String> params = new HashMap<String, String>();
-                        //    params.put("tock", resp_dt);
+                         params.put("tock", resp_dt);
                             params.put("id_inventaire", id_inv);
                             return params;
                         }

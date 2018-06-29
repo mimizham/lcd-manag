@@ -18,6 +18,7 @@
         <item name="android:fontFamily">@font/museoslab300</item>
 
     </style>
+
     <style name="NumbePickerStyle">
         <item name="android:textSize">22dp</item>
         <item name="android:textColorPrimary">@color/colorAccent</item>
@@ -28,11 +29,10 @@
         <item name="android:textColor">@color/colorBgOppos</item>
         <item name="android:textSize">18sp</item>
     </style>
+
     <style name="layoutstyle">
         <item name="android:background">@drawable/button_press</item>
     </style>
-
-
 
 
     <style name="menuTextView">
@@ -41,6 +41,7 @@
         <item name="android:textColor">@color/colorBgOppos</item>
         <item name="android:fontFamily">@font/museoslab300</item>
     </style>
+
     <style name="ListView" parent="@android:style/Widget.ListView">
         <item name="android:textSize">10dp</item>
         <item name="android:cacheColorHint">@android:color/transparent</item>
@@ -48,4 +49,8 @@
         <item name="android:dividerHeight">0dp</item>
 
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

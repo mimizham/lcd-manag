@@ -36,14 +36,12 @@ public class Menu extends AppCompatActivity {
                 intent1.putExtra("tock_tel", resp);
                 startActivity(intent1);
 
-
-
             }
         });
         ra.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent1 = new Intent(Menu.this, New2Activity.class);
+                Intent intent1 = new Intent(Menu.this, new_inventaire.class);
                 intent1.putExtra("tock_tel", resp);
                 startActivity(intent1);
 

@@ -16,25 +16,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="..Inventaire.new_inventaire"
+            android:name=".MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Inventaire.new_inventaire" />
         <activity android:name=".NewActivity" />
         <activity android:name=".Inventaire.index2Activity" />
         <activity android:name=".Inventaire.New2Activity" />
-        <activity android:name=".Inventaire.DateTime" />
+        <activity android:name=".Inventaire.UserNoAccess" />
         <activity android:name=".Inventaire.Leceladon" />
         <activity android:name=".Menu.Menu" />
         <activity android:name=".Delivery.DeliveryMain" />
         <activity android:name=".Delivery.DeliveryDetails" />
         <activity android:name=".Delivery.Product_Delivery_Details" />
         <activity android:name=".Delivery.MyDelivery" />
-       <!-- <activity android:name=".Inventaire.Detaille_Inventaire_Activity"></activity>-->
+        <!-- <activity android:name=".Inventaire.Detaille_Inventaire_Activity"></activity> -->
+        <activity android:name=".UserActivetedActivity"></activity>
     </application>
 
 </manifest>
